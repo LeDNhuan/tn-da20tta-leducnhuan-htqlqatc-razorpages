@@ -1,0 +1,88 @@
+﻿@page "/QLChiNhanh"
+@model QuanLyQuanAn.Pages.QLChiNhanh.CNhanh.IndexModel
+@{
+}
+
+<div class="pagetitle">
+    <h1>QUẢN LÝ CHI NHÁNH</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/TongQuan">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Quản lý chi nhánh</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section dashboard">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Danh sách bàn</h5>
+
+                        @(Html.DevExtreme().DataGrid<QuanLyQuanAn.Models.ChiNhanh>()
+                            .ID("gridContainer")
+                            .ShowBorders(true)
+                            .FilterRow(filterRow => filterRow
+                            .Visible(true)
+                            .ApplyFilter(GridApplyFilterMode.Auto)
+                            )
+                            .SearchPanel(searchPanel => searchPanel
+                            .Visible(true)
+                            .Width(240)
+                            .Placeholder("Tìm kiếm...")
+                            )
+                            .Scrolling(scrolling => scrolling.RowRenderingMode(GridRowRenderingMode.Virtual))
+                            .Paging(paging => paging.PageSize(10))
+                            .Pager(pager =>
+                            {
+                                pager.Visible(true);
+                                pager.DisplayMode(GridPagerDisplayMode.Full);
+                                pager.ShowPageSizeSelector(true);
+                                pager.AllowedPageSizes(new JS("[5, 10, 'Tất cả']"));
+                                pager.ShowInfo(true);
+                                pager.ShowNavigationButtons(true);
+                            })
+                            .Editing(editing =>
+                            {
+                                editing.Mode(GridEditMode.Form);
+                                editing.AllowUpdating(true);
+                                editing.AllowAdding(true);
+                                editing.AllowDeleting(true);
+                                editing.UseIcons(true);
+                            })
+                            .Columns(columns =>
+                            {
+                                @* columns.AddFor(b => b.Id).Caption("Mã bàn")
+                                .Visible(false)
+                                .AllowEditing(false)
+                                .Width(80); *@
+
+                                columns.AddFor(cn => cn.TenChiNhanh).Caption("Tên chi nhánh");
+
+                                columns.AddFor(cn => cn.DiaChi).Caption("Địa chỉ");
+
+                                columns.AddFor(cn => cn.Sdt).Caption("Số đt")
+                                    .Width(80);
+
+                                
+
+                            })
+                            .DataSource(d => d.Mvc()
+                            .Controller("DataGridChiNhanh")
+                            .LoadAction("Get")
+                            .UpdateAction("Put")
+                            .InsertAction("Post")
+                            .DeleteAction("Delete")
+                            .Key("Id")
+                            )
+                            )
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
+</section>

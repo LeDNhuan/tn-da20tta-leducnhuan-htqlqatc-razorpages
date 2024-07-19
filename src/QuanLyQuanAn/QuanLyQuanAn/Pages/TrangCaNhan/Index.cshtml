@@ -1,0 +1,212 @@
+﻿@page "/CaNhan"
+@model QuanLyQuanAn.Pages.TrangCaNhan.IndexModel
+
+<div class="pagetitle">
+    <h1>Trang cá nhân</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            @* <li class="breadcrumb-item">Users</li> *@
+            <li class="breadcrumb-item active">Trang cá nhân</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-1"></div>
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                    <img src="@Model.nhanvien.AnhDaiDien" alt="Profile" class="rounded-circle">
+                    <h2>@Model.nhanvien.HoTen</h2>
+                    <h3 class="mt-2">@Model.vaitro</h3>                                                                            
+                </div>
+
+                <hr style="border: 1px dashed;" />
+
+                <div class="card-body text-center">
+                    <h5 class="card-title">THÔNG TIN</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <td>@Model.nhanvien.Id</td>
+                            </tr>
+                            <tr>
+                                <th>Họ tên</th>
+                                <td>@Model.nhanvien.HoTen</td>
+                            </tr>
+                            <tr>
+                                <th>CCCD</th>
+                                <td>@Model.nhanvien.Cccd</td>
+                            </tr>
+                            <tr>
+                                <th>SĐT</th>
+                                <td>@Model.nhanvien.Sdt</td>
+                            </tr>
+                            <tr>
+                                <th>Địa chỉ</th>
+                                <td>@Model.nhanvien.DiaChi</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>@Model.nhanvien.Gmail</td>
+                            </tr>
+                            <form method="post" enctype="multipart/form-data">
+                                <tr>
+                                    <th>Ảnh đại diện</th>
+                                    <td>                                    
+                                        <input class="form-control" name="Input.AnhDaiDien" type="file" id="formFile" />                                    
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="text-center">
+                                        <button type="submit" class="btn btn-success" asp-page-handler="CapNhatAnh"><i class="bi bi-floppy"></i></button>
+                                        <button type="submit" class="btn btn-danger" asp-page-handler="XoaAnh"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </form>
+                        </thead>
+                    </table>
+
+                </div>                
+            </div>
+        </div>
+
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
+
+                        @* <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-profit" aria-selected="true" role="tab">Hoa hồng</button>
+                        </li> *@
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-change-password" aria-selected="true" @* tabindex="-1"  *@role="tab">Đổi mật khẩu</button>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content pt-2">
+
+                        @* <div class="tab-pane fade show active profile-edit pt-3" id="profile-profit" role="tabpanel">                            
+                            
+                            <table class="table datatable">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <h5 class="card-title fw-bold">Hoa hồng bạn nhận được là: @Model.TongHH</h5>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int index = 0; index < Model.CaLams.Count; index++)
+                                    {
+                                        var calam = Model.CaLams[index];
+                                        <tr>
+                                            <td>
+                                                <div class="accordion accordion-flush" id="accordionExample">
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="headingOne">
+                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#@index" aria-expanded="true" aria-controls="collapseOne">
+                                                                <strong>Ca ngày @calam.ThoiGianKetThuc.Value.ToString("dd/MM/yyyy") (@calam.ThoiGianBatDau.Value.ToString("HH:mm") -> @calam.ThoiGianKetThuc.Value.ToString("HH:mm"))</strong>
+                                                            </button>
+                                                        </h2>
+
+                                                        <div id="@index" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body">
+                                                                <table class="table table-borderless">
+                                                                    <thead>
+                                                                        <tr class="table-secondary">
+                                                                            <th scope="col">#</th>
+                                                                            <th scope="col">Mã HĐ</th>
+                                                                            <th scope="col">Tổng tiền</th>
+                                                                            <th scope="col">Tiền HH</th>
+                                                                        </tr>
+                                                                    </thead>
+
+                                                                    @{
+                                                                        var i = 0;
+                                                                    }
+                                                                    @foreach (var hoadon in Model.HoaDons)
+                                                                    {
+                                                                        if (hoadon.GioRa >= calam.ThoiGianBatDau && hoadon.GioVao <= calam.ThoiGianKetThuc)
+                                                                        {
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <th scope="row">@i</th>
+                                                                                    <td>@hoadon.Id</td>
+                                                                                    <td>@hoadon.TongTien.000</td>
+                                                                                    <td>@hoadon.TienHoaHong.000</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        }
+                                                                        i++;
+                                                                    }
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>                            
+                        </div>       *@                  
+
+                        <div class="tab-pane fade show active profile-edit pt-3" id="profile-change-password" role="tabpanel">
+                            <!-- Change Password Form -->
+                            <form method="post" class="row g-3 needs-validation" enctype="multipart/form-data" novalidate>
+                                <div class="row mb-3">
+                                    <label for="Password" class="form-label">Mật khẩu hiện tại</label>
+                                    <div class="input-group has-validation">
+                                        @* <span class="input-group-text" id="inputGroupPrepend"></span> *@
+                                        <input type="password" name="Input.Password" class="form-control" id="Password" required>
+                                        <div class="invalid-feedback">Bạn phải nhập mật khẩu.</div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="NewPassword" class="form-label">Mật khẩu mới</label>
+                                    <div class="input-group has-validation">
+                                        @* <span class="input-group-text" id="inputGroupPrepend"></span> *@
+                                        <input type="password" name="Input.NewPassword" class="form-control" id="NewPassword" required>
+                                        <div class="invalid-feedback">Bạn phải nhập mật khẩu mới.</div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="ConfirmNewPassword" class="form-label">Nhập lại mật khẩu mới</label>
+                                    <div class="input-group has-validation">
+                                        @* <span class="input-group-text" id="inputGroupPrepend"></span> *@
+                                        <input type="password" name="Input.ConfirmNewPassword" class="form-control" id="ConfirmNewPassword" required>
+                                        <div class="invalid-feedback">Bạn phải nhập lại mật khẩu mới.</div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                </div>
+                            </form><!-- End Change Password Form -->
+                        </div>
+
+                        @if (ViewData["SuccessMessage"] != null)
+                        {
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                @ViewData["SuccessMessage"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+
+                    </div><!-- End Bordered Tabs -->
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-1"></div>
+    </div>
+</section>

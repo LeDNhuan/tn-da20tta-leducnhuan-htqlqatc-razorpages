@@ -1,0 +1,124 @@
+﻿<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+    @inject IHttpContextAccessor HttpContextAccessor
+
+    @{
+        var role = HttpContextAccessor.HttpContext.Session.GetString("Role");
+    }
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-heading">Hoạt động</li>
+
+        <li class="nav-item">
+            <a class="nav-link active" href="/BanAn">
+                <i class="bi bi-grid"></i>
+                <span>Bàn - Mang về</span>
+            </a>
+        </li><!-- End BanMangve Nav -->      
+
+        @if (role == "ThuNgan")
+        {
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/PhieuChi">
+                    <i class="bi bi-card-list"></i>
+                    <span>Phiếu chi</span>
+                </a>
+            </li><!-- End PhieuChi Nav -->
+
+            <hr />
+
+            <li class="nav-heading">Thu nhập</li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/DoanhThuTheoCa">
+                    <i class="bi bi-cart3"></i>
+                    <span>Doanh thu theo ca</span>
+                </a>
+            </li>
+
+            <!-- End DoanhThu Nav -->
+
+            <hr />
+        }
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/DSHoaDon">
+                <i class="bi bi-receipt"></i>
+                <span>Hóa đơn</span>
+            </a>
+        </li><!-- End LichSuHD Nav -->
+              
+        @if (role == "ThuNgan" || role == "NhanVien")
+        {
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/HoaHong">
+                    <i class="bi bi-cash-coin"></i>
+                    <span>Hoa hồng tích lũy</span>
+                </a>
+            </li><!-- End HoaHong Nav -->
+        
+            <hr />
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/CaNhan">
+                    <i class="bi bi-person"></i>
+                    <span>Trang cá nhân</span>
+                </a>
+            </li><!-- End CaNhan Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/DongCaLam">
+                    <i class="bi bi-box-arrow-in-right "></i>
+                    <span class="text-danger">Đóng ca làm</span>
+                </a>
+            </li><!-- End DongCa Nav -->
+        }
+
+        
+        
+
+        @* <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-faq.html">
+        <i class="bi bi-question-circle"></i>
+        <span>F.A.Q</span>
+        </a>
+        </li><!-- End F.A.Q Page Nav -->
+
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-contact.html">
+        <i class="bi bi-envelope"></i>
+        <span>Contact</span>
+        </a>
+        </li><!-- End Contact Page Nav -->
+
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-register.html">
+        <i class="bi bi-card-list"></i>
+        <span>Register</span>
+        </a>
+        </li><!-- End Register Page Nav -->
+
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span>Login</span>
+        </a>
+        </li><!-- End Login Page Nav -->
+
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-error-404.html">
+        <i class="bi bi-dash-circle"></i>
+        <span>Error 404</span>
+        </a>
+        </li><!-- End Error 404 Page Nav -->
+
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-blank.html">
+        <i class="bi bi-file-earmark"></i>
+        <span>Blank</span>
+        </a>
+        </li><!-- End Blank Page Nav --> *@
+
+    </ul>
+
+</aside><!-- End Sidebar-->

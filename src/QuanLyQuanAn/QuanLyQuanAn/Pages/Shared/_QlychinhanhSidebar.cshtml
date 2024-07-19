@@ -1,0 +1,307 @@
+﻿@using QuanLyQuanAn.Services
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/TongQuan">
+                <i class="bi bi-grid"></i>
+                <span>Tổng quan</span>
+            </a>
+        </li><!-- End TongQuan Nav -->
+
+        <hr />
+
+        <li class="nav-heading">Kinh doanh</li>        
+        
+        @inject ChiNhanhService chinhanhService
+        @inject IHttpContextAccessor HttpContextAccessor
+
+        @{
+            var role = HttpContextAccessor.HttpContext.Session.GetString("Role");
+        }
+
+        @if (role == "QuanLyTong")
+        {
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#doanhthu-nav" data-bs-toggle="collapse" href="">
+                    <i class="bi bi-graph-up-arrow"></i><span>Doanh thu</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="doanhthu-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/QLDoanhThu?chinhanhId=0" class="">
+                            <i class="bi bi-square-fill"></i><span>Tất cả</span>
+                        </a>
+                    </li>
+                    @foreach (var chinhanh in await chinhanhService.GetChiNhanhsAsync())
+                    {
+                        <li>
+                            <a href="/QLDoanhThu?chinhanhId=@chinhanh.Id" class="">
+                                <i class="bi bi-square-fill"></i><span>@chinhanh.TenChiNhanh</span>
+                            </a>
+                        </li> 
+                    }
+                               
+                </ul>
+            </li><!-- End DoanhThu Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#hoadon-nav" data-bs-toggle="collapse" href="">
+                    <i class="bi bi-receipt"></i><span>Hóa đơn</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="hoadon-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/DSHoaDon?chinhanhId=0" class="">
+                            <i class="bi bi-square-fill"></i><span>Tất cả</span>
+                        </a>
+                    </li>
+                    @foreach (var chinhanh in await chinhanhService.GetChiNhanhsAsync())
+                    {
+                        <li>
+                            <a href="/DSHoaDon?chinhanhId=@chinhanh.Id" class="">
+                                <i class="bi bi-square-fill"></i><span>@chinhanh.TenChiNhanh</span>
+                            </a>
+                        </li> 
+                    }
+                               
+                </ul>
+            </li><!-- End DSHoaDon Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" @* data-bs-target="#phieuchi-nav" data-bs-toggle="collapse" *@ href="/QLPhieuChi">
+                    <i class="bi bi-card-checklist"></i><span>Phiếu chi nhân viên</span>@* <i class="bi bi-chevron-down ms-auto"></i> *@
+                </a>
+                @* <ul id="phieuchi-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/QLPhieuChi" class="">
+                            <i class="bi bi-square-fill"></i><span>Tất cả</span>
+                        </a>
+                    </li>
+                    @foreach (var chinhanh in await chinhanhService.GetChiNhanhsAsync())
+                    {
+                        <li>
+                            <a href="/QLPhieuChi?chinhanhId=@chinhanh.Id" class="">
+                                <i class="bi bi-square-fill"></i><span>@chinhanh.TenChiNhanh</span>
+                            </a>
+                        </li> 
+                    }
+                               
+                </ul> *@
+            </li><!-- End PhieuChi Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#loinhuan-nav" data-bs-toggle="collapse" href="">
+                    <i class="bi bi-cash-coin"></i><span>Lợi nhuận</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="loinhuan-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/QLLoiNhuan?chinhanhId=0" class="">
+                            <i class="bi bi-square-fill"></i><span>Tất cả</span>
+                        </a>
+                    </li>
+                    @foreach (var chinhanh in await chinhanhService.GetChiNhanhsAsync())
+                    {
+                        <li>
+                            <a href="/QLLoiNhuan?chinhanhId=@chinhanh.Id" class="">
+                                <i class="bi bi-square-fill"></i><span>@chinhanh.TenChiNhanh</span>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </li><!-- End LoiNhuan Nav -->
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/QLDoanhThu">
+                    <i class="bi bi-graph-up-arrow"></i><span>Doanh thu</span>
+                </a>
+            </li><!-- End DoanhThu Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/DSHoaDon">
+                    <i class="bi bi-receipt"></i><span>Hóa đơn</span>
+                </a>
+            </li><!-- End HoaDon Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/QLPhieuChi">
+                    <i class="bi bi-card-checklist"></i><span>Phiếu chi nhân viên</span>
+                </a>
+            </li><!-- End PhieuThuNV Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/QLLoiNhuan">
+                    <i class="bi bi-cash-coin"></i><span>Lợi nhuận</span>
+                </a>
+            </li><!-- End LoiNhuan Nav -->
+        }        
+
+        <hr />
+
+        <li class="nav-heading">Quản lý</li>
+
+         @if (role == "QuanLyTong")
+        {
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/QLChiNhanh">
+                    <i class="bi bi-houses"></i><span>Chi nhánh</span>
+                </a>
+            </li><!-- End ChiNhanh Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" @* data-bs-target="#banan-nav" data-bs-toggle="collapse" *@ href="/QLBanAn">
+                    <i class="bi bi-stop-btn"></i><span>Bàn ăn</span>@* <i class="bi bi-chevron-down ms-auto"></i> *@
+                </a>
+                @* <ul id="banan-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/QLBanAn?chinhanhId=0" class="">
+                            <i class="bi bi-square-fill"></i><span>Tất cả</span>
+                        </a>
+                    </li>
+                    @foreach (var chinhanh in await chinhanhService.GetChiNhanhsAsync())
+                    {
+                        <li>
+                            <a href="/QLBanAn?chinhanhId=@chinhanh.Id" class="">
+                                <i class="bi bi-square-fill"></i><span>@chinhanh.TenChiNhanh</span>
+                            </a>
+                        </li> 
+                    }
+                               
+                </ul> *@
+            </li><!-- End Ban Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#monan-nav" data-bs-toggle="collapse" href="">
+                    <i class="bi bi-egg-fried"></i><span>Món ăn</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="monan-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    @* <li>
+                        <a href="/QLMonAn?chinhanhId=0" class="">
+                            <i class="bi bi-square-fill"></i><span>Tất cả</span>
+                        </a>
+                    </li> *@
+                    @foreach (var chinhanh in await chinhanhService.GetChiNhanhsAsync())
+                    {
+                        <li>
+                            <a href="/QLMonAn?chinhanhId=@chinhanh.Id" class="">
+                                <i class="bi bi-square-fill"></i><span>@chinhanh.TenChiNhanh</span>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </li><!-- End MonAn Nav -->
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/QLBanAn">
+                    <i class="bi bi-stop-btn"></i><span>Bàn</span>
+                </a>          
+            </li><!-- End Ban Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/QLMonAn">
+                    <i class="bi bi-egg-fried"></i><span>Món ăn</span>
+                </a>
+            </li><!-- End MonAn Nav -->
+        }        
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/QLKhuyenMai">
+                <i class="bi bi-ticket-perforated"></i><span>CT khuyến mãi</span>
+            </a>
+        </li><!-- End MonAn Nav -->
+
+        @if (role == "QuanLyTong")
+        {
+            <li class="nav-item">
+                <a class="nav-link collapsed" @* data-bs-target="#nv-nav" data-bs-toggle="collapse" *@ href="/QLNhanVien">
+                    <i class="bi bi-people-fill"></i><span>Nhân viên</span>@* <i class="bi bi-chevron-down ms-auto"></i> *@
+                </a>
+                @* <ul id="nv-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/QLNhanVien" class="">
+                            <i class="bi bi-square-fill"></i><span>Tất cả</span>
+                        </a>
+                    </li>
+                    @foreach (var chinhanh in await chinhanhService.GetChiNhanhsAsync())
+                    {
+                        <li>
+                            <a href="/QLNhanVien?chinhanhId=@chinhanh.Id" class="">
+                                <i class="bi bi-square-fill"></i><span>@chinhanh.TenChiNhanh</span>
+                            </a>
+                        </li>
+                    }
+
+                </ul> *@
+            </li><!-- End NhanVien Nav -->
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/QLNhanVien">
+                    <i class="bi bi-people-fill"></i><span>Nhân viên</span>
+                </a>            
+            </li>
+        }<!-- End NhanVien Nav -->
+
+        
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/QLKhachHang">
+                <i class="bi bi-person-square"></i><span>Khách hàng</span>
+            </a>            
+        </li><!-- End KhachHang Nav -->
+
+        <hr />
+
+        <li class="nav-heading">Phục vụ</li>        
+        
+        @if (role == "QuanLyTong")
+        {
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#ban-nav" data-bs-toggle="collapse" href="">
+                    <i class="bi bi-cart3"></i><span>Bàn / Mang về</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="ban-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">                    
+                    @foreach (var chinhanh in await chinhanhService.GetChiNhanhsAsync())
+                    {
+                        <li>
+                            <a href="/BanAn?chinhanhId=@chinhanh.Id" class="">
+                                <i class="bi bi-square-fill"></i><span>@chinhanh.TenChiNhanh</span>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </li>           
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/BanAn">
+                    <i class="bi bi-cart3"></i><span>Bàn / Mang về</span>                    
+                </a>
+            </li><!-- End BanMangve Nav -->
+        }
+
+        @* <li class="nav-item">
+            <a class="nav-link collapsed" href="/CaNhan">
+                <i class="bi bi-person"></i>
+                <span>Trang cá nhân</span>
+            </a>
+        </li><!-- End CaNhan Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/DongCaLam">
+                <i class="bi bi-box-arrow-in-right "></i>
+                <span class="text-danger">Đóng ca làm</span>
+            </a>
+        </li><!-- End DongCa Nav --> *@
+    </ul>
+
+</aside><!-- End Sidebar-->

@@ -1,0 +1,144 @@
+﻿@page "/GoiMon"
+@model QuanLyQuanAn.Pages.MonAn.IndexModel
+
+<div class="pagetitle">
+    <h1>GỌI MÓN</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Index">Trang chủ</a></li>
+            <li class="breadcrumb-item">Bàn @Model.BanId</li>
+            <li class="breadcrumb-item active">Gọi món</li>
+        </ol>
+    </nav>
+</div>
+
+<hr />
+<section class="section dashboard">
+    <div class="col-12">
+        <div class="row" style="overflow-x: auto; white-space: nowrap;">
+            <div class="scrollable-buttons">
+                @foreach (var loaimon in Model.LoaiMons)
+                {
+                    <a type="button" href="#@loaimon.Id" class="btn btn-secondary">@loaimon.TenLoaiMon</a>
+                }
+            </div>
+        </div>
+
+        <hr />
+        
+        @foreach (var loaimon in Model.LoaiMons)
+        {
+            <div id="@loaimon.Id" class="row mt-3">
+                @* <div class="col-xxl-3"></div> *@
+                <div class="col-xxl-12 col-12">
+                    <div class="card text-center bg-primary text-white">@loaimon.TenLoaiMon</div>
+                </div>
+                @* <div class="col-xxl-3"></div> *@
+
+                @foreach (var monan in Model.MonAns.Where(m => m.IdLoaiMon == loaimon.Id))
+                @* @for (int index = 0; index < Model.MonAns.Count; index++) *@
+                {
+                    //var monan = Model.MonAns[index];
+                    string uniqueId = $"item_{monan.Id}";
+
+                    <div class="col-xxl-4 col-md-6 col-sm-12">
+                
+                        <div class="card info-card sales-card">
+                            @* <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" style="">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div> *@
+
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4 mt-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <img class="card-img" src="~/customize/img/default_monan.png" alt="Alternate Text" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <h5 class="card-title">@monan.TenMon</h5>@* <span> | @loaimon.TenLoaiMon</span> *@
+                                            <span class="text-secondary fw-bold">@monan.GiaBan.000</span>
+                                            <div class="row pt-3">
+                                                @* <div class="col-3 text-center "></div> *@
+                                                <div class="input-group has-validation">
+                                                    <button class="btn btn-outline-primary" type="button" id="btn-decrease-@uniqueId"><i class="bi bi-dash"></i></button>
+                                                    <input type="text" name="Input.soluong" class="form-control text-center" id="soluong-@uniqueId" value="0" readonly>
+                                                    <button class="btn btn-outline-primary" type="button" id="btn-increase-@uniqueId"><i class="bi bi-plus"></i></button>
+
+                                                    <input type="hidden" name="Input.monanId" value="@monan.Id" />
+                                                    <button class="btn btn-outline-primary" type="submit" id="themhoadon" style="margin-left: 10px">Thêm</button>
+                                                </div>
+                                                @* <div class="col-3">
+                                                    <input type="hidden" name="Input.monanId" value="@monan.Id" />                                                
+                                                    <button class="btn btn-outline-primary" type="submit" id="themhoadon">Thêm</button>
+                                                </div> *@
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <input type="text" name="Input.ghichu" class="form-control" value="" placeholder="Nhập ghi chú ..." />
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', (event) => {
+                                        const input = document.getElementById('soluong-@uniqueId');
+                                        const btnDecrease = document.getElementById('btn-decrease-@uniqueId');
+                                        const btnIncrease = document.getElementById('btn-increase-@uniqueId');
+
+                                        btnDecrease.addEventListener('click', () => {
+                                            let currentValue = parseInt(input.value);
+                                            if (currentValue > 0) {
+                                                input.value = currentValue - 1;
+                                            }
+                                        });
+
+                                        btnIncrease.addEventListener('click', () => {
+                                            let currentValue = parseInt(input.value);
+                                            input.value = currentValue + 1;
+                                        });
+                                    });
+                                </script>
+                            </form>
+                        
+                        </div>                               
+                    </div>
+                }
+            </div>
+
+            @* <hr /> *@
+        }
+        
+
+        @inject IHttpContextAccessor HttpContextAccessor
+
+        @{
+            var billId = HttpContextAccessor.HttpContext.Session.GetInt32("BillId");
+        }
+
+        <div class="col-12 footer-thanhtoan sticky-footer">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xxl-8"></div>
+                    <div class="col-xxl-4 col-12 align-items-center mt-3">
+                        <a class="btn btn-success float-end" href="/ChiTiet?hoadonId=@billId">Xem chi tiết</a>
+                        @* <a class="btn btn-danger float-end">Lên món</a> *@
+                    </div>                    
+                </div>                                               
+            </div>                        
+        </div>      
+    </div>    
+</section>
+
+

@@ -1,0 +1,67 @@
+﻿@page "/ThemNguyenLieu"
+@model QuanLyQuanAn.Pages.QLChiNhanh.MonAn.ThemNguyenLieuModel
+@{
+}
+
+
+<div class="pagetitle">
+    <h1>THÊM NGUYÊN LIỆU</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/TongQuan">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/QLMonAn">Quản lý món ăn</a></li>
+            <li class="breadcrumb-item active">Thêm nguyên liệu</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-xl-3 col-12"></div>
+            <div class="col-xl-6 col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Thông tin nguyên liệu</h5>
+
+                        <div id="data-grid-demo">
+                            @(
+                                Html.DevExtreme().DataGrid<QuanLyQuanAn.Models.NguyenLieu>()
+                                    .ID("gridContainer")
+                                    .ShowBorders(true)
+                                    .Paging(paging => paging.Enabled(false))
+                                    .Editing(editing =>
+                                    {
+                                        editing.Mode(GridEditMode.Form);
+                                        editing.AllowUpdating(true);
+                                        editing.AllowAdding(true);
+                                        editing.AllowDeleting(true);
+                                        editing.UseIcons(true);
+                                    })
+                                    .Columns(columns =>
+                                    {
+                                        @* columns.AddFor(nl => nl.Id).Caption("ID")
+                                            .AllowEditing(false); *@
+
+                                        columns.AddFor(nl => nl.TenNguyenLieu).Caption("Tên nguyên liệu");
+
+                                        columns.AddFor(nl => nl.AnhDaiDien).Caption("Ảnh đại diện");
+                                })
+                                .DataSource(d => d.Mvc()
+                                    .Controller("DataGridNguyenLieu")
+                                    .LoadAction("Get")
+                                    .UpdateAction("Put")
+                                    .InsertAction("Post")
+                                    .DeleteAction("Delete")
+                                    .Key("Id")
+                                )
+                            )
+                        </div>
+
+                </div>
+            </div>
+            <div class="col-xl-3 col-12"></div>
+        </div>
+    </div>
+</section>

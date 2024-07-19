@@ -1,0 +1,181 @@
+﻿@page "/SuaMonAn"
+@model QuanLyQuanAn.Pages.QLChiNhanh.MonAn.SuaMonAnModel
+@{
+}
+
+<div class="pagetitle">
+    <h1>QUẢN LÝ MÓN ĂN</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/TongQuan">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/QLMonAn">Quản lý món ăn</a></li>
+            <li class="breadcrumb-item active">Sửa món ăn</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-xl-3 col-12"></div>
+            <div class="col-xl-6 col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Thông tin món ăn</h5>
+                        <!-- Form thêm/ sửa món ăn -->
+                        @if (Model.monan != null)
+                        {
+                            <form method="post" class="row g-3 needs-validation" asp-page-handler="SuaMonAn" enctype="multipart/form-data" novalidate>
+                                <input type="hidden" name="monanId" value="@Model.monan.Id"/>
+
+                                @if (Model.role == "QuanLy")
+                                {
+                                    <div class="col-12">
+                                        <label for="ChiNhanh" class="form-label">Chi nhánh</label>
+                                        <input type="text" name="LoaiMonDisplayName" class="form-control" value="@Model.chinhanh.TenChiNhanh" readonly>
+                                        <input type="hidden" name="Input.ChiNhanh" class="form-control" value="@Model.chinhanh.Id">                                    
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-12">
+                                        <label for="ChiNhanh" class="form-label">Chi nhánh</label>
+                                        @* <input type="text" name="LoaiMonDisplayName" class="form-control" value="@Model.chinhanh.TenChiNhanh" readonly>
+                                        <input type="hidden" name="Input.ChiNhanh" class="form-control" value="@Model.chinhanh.Id"> *@
+                                        <div class="">
+                                            <select class="form-select" name="Input.ChiNhanh" required>
+                                                <option value="@Model.monan.IdChiNhanh" selected="">@Model.monan.IdChiNhanhNavigation.TenChiNhanh</option>
+                                                @foreach (var cn in Model.ChiNhanhs.Where(cn => cn.Id != @Model.monan.IdChiNhanh))
+                                                {
+                                                    <option value="@cn.Id">@cn.TenChiNhanh</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                }
+                                
+
+                                <div class="col-12">
+                                    <label for="LoaiMon" class="form-label">Loại món</label>
+                                    <input type="text" name="LoaiMonDisplayName" class="form-control" value="@Model.monan.IdLoaiMonNavigation.TenLoaiMon" readonly>
+                                    <input type="hidden" name="Input.LoaiMon" class="form-control" value="@Model.monan.IdLoaiMon">
+                                    @* <div class="">
+                                        <select class="form-select" name="Input.LoaiMon" required>
+                                            <option value="@Model.monan.IdLoaiMon" selected="">@Model.monan.IdLoaiMonNavigation.TenLoaiMon</option>
+                                            @foreach (var lmon in Model.LoaiMons.Where(lm => lm.Id != @Model.monan.IdLoaiMon))
+                                            {
+                                                <option value="@lmon.Id">@lmon.TenLoaiMon</option>
+                                            }
+                                        </select>
+                                    </div> *@
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="TenMon" class="form-label">Tên món</label>
+                                    <input type="text" name="Input.TenMon" value="@Model.monan.TenMon" class="form-control" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="GiaBan" class="form-label">Giá bán</label>
+                                    <div class="input-group has-validation">
+                                        <input type="number" name="Input.GiaBan" value="@Model.monan.GiaBan" class="form-control" required>
+                                        <span class="input-group-text">.000đ</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="AnhDaiDien" class="form-label">Hình ảnh</label>
+                                    <input class="form-control" name="Input.AnhDaiDien" type="file" id="formFile">
+                                </div> 
+
+                                <div class="text-center">
+                                    @* <a class="btn btn-danger" href="/QLMonAn">Hủy</a> *@
+                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                </div>
+                            </form>                            
+
+                            <hr style="border: 1px dashed;" />
+
+
+                            @* ----------------- Sửa nguyên liệu ----------------- *@
+                            @if (Model.NguyenLieuSuas.Count != 0) {
+                                <h5 class="text-primary">Sửa nguyên liệu</h5>
+
+                                <form method="post" class="row g-3 needs-validation" asp-page-handler="SuaNguyenLieu" enctype="multipart/form-data" novalidate>
+                                    <input type="hidden" name="monanId" value="@Model.monan.Id" />
+
+                                    @for (int i = 0; i < Model.NguyenLieuSuas.Count; i++)
+                                    {
+                                        var nl = Model.NguyenLieuSuas[i];
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-xxl-6 col-6">
+                                                    <input type="text" class="form-control" name="NguyenLieuSuas[@i].TenNguyenLieu" value="@nl.TenNguyenLieu" readonly />
+                                                    <input type="hidden" name="NguyenLieuSuas[@i].Id" value="@nl.Id" />
+                                                </div>
+                                                <div class="col-xxl-6 col-6">
+                                                    <div class="input-group has-validation">
+                                                        <input type="number" class="form-control" name="NguyenLieuSuas[@i].SoLuong" min="0" placeholder="Trọng lượng" value="@nl.SoLuong" />
+                                                        <span class="input-group-text">gram</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <div class="text-center">
+                                        @if (Model.NguyenLieuThems.Count == 0) 
+                                        {
+                                            <a class="btn btn-danger" href="/QLMonAn">Hủy</a>
+                                        }
+                                        <button type="submit" class="btn btn-primary">Sửa</button>
+                                    </div>
+                                </form>
+
+                                <hr style="border: 1px dashed;" />
+                            }
+
+                            @* ----------------- Thêm nguyên liệu ----------------- *@
+                            @if (Model.NguyenLieuThems.Count != 0)
+                            {
+                                <h5 class="text-primary">Thêm nguyên liệu</h5>
+
+                                <form method="post" class="row g-3 needs-validation" asp-page-handler="ThemNguyenLieu" enctype="multipart/form-data" novalidate>
+                                    <input type="hidden" name="monanId" value="@Model.monan.Id" />
+
+                                    @for (int i = 0; i < Model.NguyenLieuThems.Count; i++)
+                                    {
+                                        var nglieu = Model.nguyenlieus[i];
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-xxl-6 col-6">
+                                                    <input type="text" class="form-control" name="NguyenLieuThems[@i].TenNguyenLieu" value="@nglieu.TenNguyenLieu" readonly />
+                                                    <input type="hidden" name="NguyenLieuThems[@i].Id" value="@nglieu.Id" />
+                                                </div>
+                                                <div class="col-xxl-6 col-6">
+                                                    <div class="input-group has-validation">
+                                                        <input type="number" class="form-control" name="NguyenLieuThems[@i].SoLuong" min="0" placeholder="Trọng lượng" value="" />
+                                                        <span class="input-group-text">gram</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <div class="text-center">
+                                        <a class="btn btn-danger" href="/QLMonAn">Hủy</a>
+                                        <button type="submit" class="btn btn-primary">Thêm</button>
+                                    </div>
+                                </form>
+                            }
+                            
+                                
+                        }                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-12"></div>
+        </div>
+    </div>
+</section>

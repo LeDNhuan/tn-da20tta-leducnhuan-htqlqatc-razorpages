@@ -1,0 +1,225 @@
+﻿@page "/InHoaDon"
+@model QuanLyQuanAn.Pages.HoaDonAn.InHoaDonModel
+@{
+    Layout = null; // Không sử dụng layout để tránh in các thành phần không cần thiết
+    var HoaDon = Model.HoaDon;
+    var qrCodeImageUrl = TempData["QrCodeImageUrl"] as string;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/customize/css/hoadon.css" />
+    <link href="~/customize/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>In Hóa Đơn</title>
+
+    @* <style>        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 4px;
+            padding: 0;
+        }
+        .invoice-container {
+            width: 100mm;
+            height: 145mm;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            padding: 5mm;
+            box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng đến chiều rộng và chiều cao */
+        }
+        .text-center {
+            text-align: center;
+        }
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .totals {
+            margin-top: 10px;
+        }
+        .totals p {
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style> *@
+
+    <script>
+        window.onload = function() {
+            window.print(); // Tự động gọi in khi trang được tải
+        }
+    </script>
+</head>
+<body>
+    @* <div class="invoice-container">
+        <div class="text-center">
+            <img src="path/to/logo.png" alt="Logo" style="width: 50px; height: 50px;" />
+            <h3>HÓA ĐƠN THANH TOÁN</h3>
+        </div>        
+        <div class="flex-container">
+            <p><strong>Bàn:</strong> @Model.HoaDon.IdBan</p>
+            <p><strong>ID khách hàng:</strong> @Model.HoaDon.IdKhachHang</p>
+        </div>
+        <div class="flex-container">
+            <p><strong>Giờ vào:</strong> @Model.HoaDon.GioVao.Value.ToString("HH:mm")</p>
+            <p><strong>Giờ ra:</strong> @Model.HoaDon.GioRa.Value.ToString("HH:mm")</p>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>TT</th>
+                    <th>Tên món</th>
+                    <th>SL</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int index = 1;
+                    foreach (var chitiet in Model.ChiTiets)
+                    {
+                        <tr>
+                            <td>@index</td>
+                            <td>@chitiet.IdMonGoiNavigation.TenMon</td>
+                            <td>@chitiet.SoLuong</td>
+                            <td>@chitiet.IdMonGoiNavigation.GiaBan</td>
+                            <td>@chitiet.ThanhTien</td>
+                        </tr>
+                        index++;
+                    }
+                }
+            </tbody>
+        </table>
+        <div class="totals">
+            <div class="cus">
+                <p style="margin: 0; display: flex;"><strong>Tổng tiền:</strong> @Model.HoaDon.TongTien.000 VND</p>
+            </div>
+            <p><strong>Tiền chiết khấu:</strong> 0 VND</p>
+            <p><strong>Tiền giảm giá món:</strong> 0 VND</p>
+            <p><strong>Tiền thuế (VAT):</strong> @Model.HoaDon.TienVAT VND</p>
+            <p><strong>Thành tiền VAT:</strong> @Model.HoaDon.TongTienVAT VND</p>
+            <p><strong>Phí vận chuyển:</strong> @Model.HoaDon.PhiVanChuyen VND</p>
+            <p><strong>Phiếu giảm giá:</strong> @Model.HoaDon.PhieuGiamGia VND</p>
+        </div>
+    </div> *@
+
+    <section class="section">
+        <div class="row">
+            @* <div class="col-xxl-1"></div> *@
+            <div class="col-sm-12 col-xxl-12">
+                <div class="card" style="border: none; margin-left: 10px">
+                    <div class="card-body">
+                        <div class="card-title text-center mb-3">
+                            @if (!string.IsNullOrEmpty(qrCodeImageUrl))
+                            {
+                                <img src="@qrCodeImageUrl" alt="QR Code" style="width: 50px; height: 50px;" />
+                            }
+                            @* <img src="path/to/logo.png" alt="Logo" style="width: 50px; height: 50px;" /> *@
+                            <h3 class="mt-2">HÓA ĐƠN THANH TOÁN</h3>
+                        </div>
+                        
+                        @if (HoaDon != null)
+                        {
+                            <div class="row g-3">
+                                <table class="table-borderless" style="font-size: 15px">
+                                    <thead>
+                                        <tr class="col-12">
+                                            <td scope="col-6"><strong>Số HĐ:</strong> @HoaDon.Id</td>
+                                            <td scope="col-6"><strong>TN:</strong> @Model.nvien</td>
+                                        </tr>
+                                    </thead>
+                                    <thead>
+                                        <tr class="col-12">
+                                            <td scope="col-6"><strong>Bàn:</strong> @HoaDon.IdBanNavigation.LoaiBan</td>
+                                            <td scope="col-6"><strong>Ngày:</strong> @HoaDon.GioVao.Value.ToString("dd/MM/yyyy")</td>
+                                        </tr>
+                                    </thead>
+                                    <thead>
+                                        <tr>
+                                            <td scope="col"><strong>Giờ vào:</strong> @HoaDon.GioVao.Value.ToString("HH:mm")</td>
+                                            <td scope="col"><strong>Giờ ra:</strong> @HoaDon.GioRa.Value.ToString("HH:mm")</td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>                            
+
+                            <div class="row g-3">
+                                @* <span class="text-center mb-3 text-primary">CHI TIẾT GỌI MÓN</span> *@
+
+                                <table class="table table-borderless" style="font-size: 15px">
+                                    <thead class="" style="border: 1px solid">
+                                        <tr>
+                                            <th scope="col">TT</th>
+                                            <th scope="col">Tên món</th>
+                                            <th scope="col">Giá</th>
+                                            <th scope="col">SL</th>
+                                            <th scope="col">Thành tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="">
+                                        @{
+                                            int index = 1;
+                                        }
+                                        @foreach (var chitiet in Model.ChiTiets)
+                                        {
+                                            <tr>
+                                                <th scope="row">@index</th>
+                                                <td>@chitiet.IdMonGoiNavigation.IdLoaiMonNavigation.TenLoaiMon | @chitiet.IdMonGoiNavigation.TenMon</td>
+                                                <td>@chitiet.IdMonGoiNavigation.GiaBan</td>
+                                                <td>@chitiet.SoLuong</td>
+                                                <td>@chitiet.ThanhTien.000đ</td>
+                                            </tr>
+                                            index++;
+                                        }
+                                            <tr>
+                                                <th scope="col" colspan="4">Thành tiền:</th>
+                                                <td scope="col">@HoaDon.TongTien.000đ</td>
+                                            </tr>
+
+                                            <tr style="border: 1px dashed; font-size: 18px;">
+                                                <th scope="col-6" colspan="4">Tổng tiền:</th>
+                                                <td scope="col-6">@HoaDon.TongTien.000đ</td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+
+                                @*<div class="card col-md-12">
+                                    <div class="card-body">
+                                         <h5 class="card-title">Default Table</h5>
+                                        <!-- Default Table -->
+                                        
+                                        <!-- End Default Table Example -->
+                                    </div>
+                                </div> *@
+                            </div>
+
+                            <hr style="border-top: 1px dashed;" />
+
+                            <div class="text-center">
+                                <p class="fw-bold">TCT Group</p>
+                                <p>Địa chỉ: @HoaDon.IdBanNavigation.IdChiNhanhNavigation.DiaChi</p>
+                            </div>
+
+                        }                    
+
+                    </div>
+                </div>
+            </div>
+            @* <div class="col-xxl-1"></div> *@
+        </div>
+    </section>
+
+</body>
+</html>

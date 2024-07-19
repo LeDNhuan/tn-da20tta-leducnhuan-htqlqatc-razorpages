@@ -1,0 +1,101 @@
+﻿@page "/QLKhachHang"
+@model QuanLyQuanAn.Pages.QLChiNhanh.KHang.IndexModel
+@{
+}
+
+
+<div class="pagetitle">
+    <h1>QUẢN LÝ KHÁCH HÀNG</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/TongQuan">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Quản lý khách hàng</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section dashboard">
+    <div class="col-12">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Danh sách khách hàng</h5>
+
+                    @(Html.DevExtreme().DataGrid<QuanLyQuanAn.Models.KhachHang>()
+                        .ID("gridContainer")
+                        .ShowBorders(true)
+                        .FilterRow(filterRow => filterRow
+                            .Visible(true)
+                            .ApplyFilter(GridApplyFilterMode.Auto)
+                        )
+                        .SearchPanel(searchPanel => searchPanel
+                            .Visible(true)
+                            .Width(240)
+                            .Placeholder("Tìm kiếm...")
+                        )
+                        .Scrolling(scrolling => scrolling.RowRenderingMode(GridRowRenderingMode.Virtual))
+                        .Paging(paging => paging.PageSize(10))
+                        .Pager(pager =>
+                        {
+                            pager.Visible(true);
+                            pager.DisplayMode(GridPagerDisplayMode.Full);
+                            pager.ShowPageSizeSelector(true);
+                            pager.AllowedPageSizes(new JS("[5, 10, 'Tất cả']"));
+                            pager.ShowInfo(true);
+                            pager.ShowNavigationButtons(true);
+                        })
+                        @* .Editing(editing =>
+                        {
+                            editing.Mode(GridEditMode.Form);
+                            editing.AllowUpdating(true);
+                            editing.AllowAdding(true);
+                            editing.AllowDeleting(true);
+                            editing.UseIcons(true);
+                        }) *@
+                        .Columns(columns =>
+                        {
+                            columns.AddFor(kh => kh.Id).Caption("Mã khách hàng")
+                            .Visible(true)
+                            .AllowEditing(false)
+                            .Width(120);
+
+                            columns.AddFor(kh => kh.HoTen).Caption("Họ tên");
+
+                            columns.AddFor(kh => kh.GioiTinh).Caption("Giới tính")
+                            .Width(80);
+
+                            columns.AddFor(kh => kh.NgaySinh).Caption("Ngày sinh")
+                            .Width(100)
+                            .Format("dd/MM/yyyy");
+
+                            columns.AddFor(kh => kh.Cccd).Caption("Số CCCD")
+                            .Width(110);
+
+                            columns.AddFor(kh => kh.Sdt).Caption("Số ĐT")
+                            .Width(110);
+
+                            columns.AddFor(kh => kh.DiaChi).Caption("Địa chỉ");
+
+                            columns.AddFor(kh => kh.Gmail).Caption("Email");
+                            
+                            columns.AddFor(kh => kh.MatKhau).Caption("Mật khẩu")
+                            .Visible(false);
+
+                            columns.AddFor(kh => kh.AnhDaiDien).Caption("Ảnh đại diện")
+                            .AllowEditing(false)
+                            .Visible(false);
+                        })
+                        .DataSource(d => d.Mvc()
+                            .Controller("DataGridKhachHang")
+                            .LoadAction("Get")
+                            .UpdateAction("Put")
+                            .InsertAction("Post")
+                            .DeleteAction("Delete")
+                            .Key("Id")
+                        )
+                    )
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

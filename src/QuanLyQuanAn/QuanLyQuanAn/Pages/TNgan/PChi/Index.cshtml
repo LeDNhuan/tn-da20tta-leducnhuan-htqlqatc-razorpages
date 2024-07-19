@@ -1,0 +1,57 @@
+﻿@page "/PhieuChi"
+@model QuanLyQuanAn.Pages.TNgan.PChi.IndexModel
+@{
+}
+
+<div class="pagetitle">
+    <h1>LẬP PHIẾU CHI</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a>Trang chủ</a></li>
+            @* <li class="breadcrumb-item"><a href="/QLMonAn">Quản lý món ăn</a></li> *@
+            <li class="breadcrumb-item active">Phiếu chi</li>
+        </ol>
+    </nav>
+</div>
+
+
+<section class="section">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-xl-3"></div>
+            <div class="col-xl-6 col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Thông tin phiếu chi</h5>
+
+                        <form method="post" class="row g-3 needs-validation" enctype="multipart/form-data" novalidate>
+                            <div class="input-group mb-3">
+                                <label for="SoChi" class="form-label">Số tiền chi</label>
+                                <div class="input-group has-validation">
+                                    <input type="number" name="Input.SoChi" class="form-control" min="0" required>
+                                    <span class="input-group-text">.000đ</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="" class="form-label">Ghi chú</label>
+                                <div class="input-group has-validation">
+                                    <textarea name="Input.GhiChu" class="form-control" id="GhiChu" required></textarea>                                    
+                                </div>
+                            </div>
+
+
+                            <div class="text-center">
+                                <a class="btn btn-danger" href="/BanAn">Hủy</a>
+                                <button type="submit" class="btn btn-primary">Lưu</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3"></div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,158 @@
+﻿@page "/QLLoiNhuan"
+@model QuanLyQuanAn.Pages.QLChiNhanh.DoanhThu.LoiNhuanModel
+@{
+}
+
+<div class="pagetitle">
+    <h1>LỢI NHUẬN</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/BanAn">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Lợi nhuận</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="section">
+    <div class="row">
+        <div class="col-xxl-2"></div>
+        <div class="col-xxl-8 col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Lợi nhuận</h5>
+
+                    <hr style="border-top: 1px solid;"/>
+
+                    <form>
+                        <input type="hidden" id="chinhanhId" name="chinhanhId" value="@Model.ChiNhanhId">
+
+                        <div class="row mb-3">
+                            <label for="SoChi" class="col-sm-4 col-form-label fw-bold">Ngày:</label>
+                            <div class="col-sm-8">
+                                <input type="date" id="datePicker" class="form-control" name="selectedDate" value="@Model.NgayChon?.ToString("yyyy-MM-dd")">
+                            </div>
+                            @* <input type="hidden" id="branchId" value="@Model.branchId" /> *@
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="SoChi" class="col-sm-4 col-form-label fw-bold">Doanh thu:</label>
+                            <div class="col-sm-8">                                
+                                <input type="number" name="DoanhThu" class="form-control" value="@Model.DoanhThuNgay.000" readonly>                                
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <label for="SoChi" class="col-sm-4 col-form-label fw-bold">Hoa hồng nhân viên:</label>
+                            @* <div class="col-sm-1"><span class="input-group-text text-center"><i class="bi bi-dash-lg"></i></span></div> *@
+                            <div class="col-sm-8">                                
+                                <input type="number" name="Input.SoChi" class="form-control" value="-@Model.HoaHong" readonly>                                
+                            </div>
+                        </div>
+
+                        @foreach (var pc in Model.PhieuChis)
+                        {
+                            <div class="row mb-3">
+                                <label for="SoChi" class="col-sm-4 col-form-labe fw-boldl">Số tiền chi:</label>
+                                <div class="col-sm-8">
+                                    <input type="number" name="Input.SoChi" class="form-control" value="-@pc.SoChi" readonly>                                    
+                                </div>
+                            </div>
+                        }                        
+                        
+                        <hr style="border-top: 1px dashed;" />
+
+                        <div class="row mb-3">
+                            <label for="SoChi" class="col-sm-4 col-form-label fw-bold">Tổng lợi nhuận:</label>
+                            <div class="col-sm-8">
+                                <input type="number" name="DoanhThu" class="form-control" value="@Model.LoiNhuan" readonly>
+                            </div>
+                        </div>
+
+
+                        @* <div class="text-center">
+                            <a class="btn btn-danger" href="/BanAn">Hủy</a>
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+                        </div> *@
+
+                    </form>
+
+                    <script>
+                        document.getElementById('datePicker').addEventListener('change', function () {
+                            var selectedDate = this.value; // Lấy ngày được chọn từ input
+                            var chinhanhId = document.getElementById('chinhanhId').value; // Lấy chinhanhId
+                            window.location.href = "/QLLoiNhuan?chinhanhId=" + chinhanhId + "&ngaychon=" + selectedDate;
+                        });
+                    </script>
+
+
+
+
+                    @* <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal" data-id="@hoadon.Id"><i class="bi bi-justify"></i></button>
+
+                    <div class="modal fade" id="basicModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Chi tiết hóa đơn</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-borderless text-center">
+                                        <thead>
+                                            <tr class="table-primary">
+                                                <th scope="col">#</th>
+                                                <th scope="col">Chi nhánh</th>
+                                                <th scope="col">Nhân viên</th>
+                                                <th scope="col">Số chi</th>
+                                                <th scope="col">Ghi chú</th>
+                                                <th scope="col">Ngày lập</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="modal-body-content">
+                                            <!-- Nội dung chi tiết hóa đơn sẽ được tải vào đây bằng JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Basic Modal-->
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var detailsModal = document.getElementById('basicModal');
+                            detailsModal.addEventListener('show.bs.modal', function (event) {
+                                var button = event.relatedTarget; // Nút bấm kích hoạt modal
+                                var id = button.getAttribute('data-id'); // Lấy ID hóa đơn từ thuộc tính data-id
+
+                                // Gọi ajax để lấy chi tiết hóa đơn và cập nhật modal body
+                                fetch(`/HoaDon/Details?id=${id}`)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        var tbody = document.getElementById('modal-body-content');
+                                        tbody.innerHTML = '';
+                                        var index = 1;
+                                        data.forEach(chitiet => {
+                                            var row = `<tr>
+                                            <th scope="row">${index}</th>
+                                            <td>${chitiet.LoaiMon}</td>
+                                            <td>${chitiet.TenMon}</td>
+                                            <td>${chitiet.Gia}</td>
+                                            <td>${chitiet.SoLuong}</td>
+                                            <td>${chitiet.ThanhTien}</td>
+                                            </tr>`;
+                                            tbody.insertAdjacentHTML('beforeend', row);
+                                            index++;
+                                        });
+                                    });
+                            });
+                        });
+                    </script> *@
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-2"></div>
+    </div>
+</div>

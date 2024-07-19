@@ -1,0 +1,241 @@
+﻿@page "/BanAn"
+@model QuanLyQuanAn.Pages.BanAn.IndexModel
+
+<div class="pagetitle">
+    <h1>BÀN - MANG VỀ</h1>
+    <nav>
+        <ol class="breadcrumb">
+            @* <li class="breadcrumb-item"><a href="">Trang chủ</a></li> *@
+            <li class="breadcrumb-item active">Bàn - Mang về</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="section dashboard">
+    <div class="col-12">
+        <div class="row">
+            @foreach (var ban in Model.Bans)
+            {
+                var hoadonchuaTT = Model.HoaDonChuaTT.FirstOrDefault(hd => hd.IdBan == ban.Id && hd.TrangThai != "ThanhToan");
+
+                <div class="col-xxl-3 col-md-6 col-6">
+                    <a class="card btn @* @(hoadonchuaTT != null ? (ban.TinhTrang == "ToanBoRoi" ? "btn-outline-success" : "btn-outline-primary") : "btn-outline-secondary") *@"
+                       style="height:140px; color: white; background-color: @(ban.TinhTrang == "ToanBoRoi" ? "#198754" : ban.TinhTrang == "DangPhucVu" ? "#0d6efd" : "#6c757d")"
+                       href="@(hoadonchuaTT != null ? $"/ChiTiet?hoadonId={hoadonchuaTT.Id}" : $"/GoiMon?banId={ban.Id}")"
+                       data-hoadon-id="@hoadonchuaTT?.Id">
+
+                        <div class="row" style="padding-bottom: 70px">
+                            @* <i class="bi bi-cart3"></i> *@
+                            <div class="card-label">@ban.LoaiBan</div>
+                            @* <div class="price">Chi nhánh @ban.IdChiNhanh</div> *@
+                        </div>
+                        @if(hoadonchuaTT != null)
+                        {
+                            var giovao = hoadonchuaTT.GioVao.HasValue ? hoadonchuaTT.GioVao.Value.ToString("o") : "";
+                            <div class="row">
+
+                                <div class="card-label col-xxl-6 col-7">@hoadonchuaTT.TongTien.000đ</div>
+
+                                <div class="card-label col-xxl-6 col-5" 
+                                     id="time-elapsed-@hoadonchuaTT.Id" 
+                                     data-start-timer="@(ban.TinhTrang != "ToanBoRoi")" 
+                                     data-start-time="@giovao">
+                                     00:00
+                                 </div>
+
+                            </div>
+                        }
+                        @* <script>                           
+                            // document.addEventListener('DOMContentLoaded', (event) => {
+                            //     const startTimers = () => {
+                            //         const timeElements = document.querySelectorAll('[data-start-timer="true"]');
+
+                            //         timeElements.forEach(element => {
+                            //             const startTimeString = element.getAttribute('data-start-time');
+                            //             const hoadonId = element.closest('a').getAttribute('data-hoadon-id');
+                            //             const mucDoChoElement = element.closest('a');
+
+                            //             if (!startTimeString) return;
+
+                            //             const startTime = new Date(startTimeString);
+                            //             const updateTimer = () => {
+                            //                 const now = new Date();
+                            //                 const secondsElapsed = Math.floor((now - startTime) / 1000);
+
+                            //                 const minutes = Math.floor(secondsElapsed / 60);
+                            //                 const seconds = secondsElapsed % 60;
+
+                            //                 element.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                            //                 if (minutes >= 5) {
+
+                            //                     mucDoChoElement.style.backgroundColor = '#dc3545';
+                            //                     updateMucDoCho(hoadonId, 2);
+                            //                     // if (mucDoChoElement.style.border !== '2px dashed #dc3545') {
+                                                    
+                            //                     // }
+                            //                 } else if (minutes >= 2) {
+
+                            //                     mucDoChoElement.style.backgroundColor = '#ffc107';
+                            //                     updateMucDoCho(hoadonId, 1);
+                            //                     // if (mucDoChoElement.style.border !== '2px dashed #ffc107') {
+                                                    
+                            //                     // }
+                            //                 }
+                            //             };
+
+                            //             updateTimer();
+                            //             setInterval(updateTimer, 1000);
+                            //         });
+                            //     };
+                            // });
+                            //     const updateMucDoCho = (hoadonId, mucdocho) => {
+                            //         fetch('/UpdateMucDoCho', {
+                            //             method: 'POST',
+                            //             headers: {
+                            //                 'Content-Type': 'application/json'
+                            //             },
+                            //             body: JSON.stringify({ HoaDonId: parseInt(hoadonId), MucDoCho: mucdocho })
+                            //         })
+                            //     };
+
+                            //     startTimers();
+                            // });
+
+                            // document.addEventListener('DOMContentLoaded', (event) => {
+                            //     const startTimers = () => {
+                            //         const timeElements = document.querySelectorAll('[data-start-timer="true"]');
+
+                            //         timeElements.forEach(element => {
+                            //             const startTimeString = element.getAttribute('data-start-time');
+                            //             const hoadonId = element.closest('a').getAttribute('data-hoadon-id');
+                            //             const mucDoChoElement = element.closest('a');
+
+                            //             if (!startTimeString) return;
+
+                            //             const startTime = new Date(startTimeString);
+
+                            //             const updateTimer = () => {
+                            //                 const now = new Date();
+                            //                 const secondsElapsed = Math.floor((now - startTime) / 1000);
+
+                            //                 const minutes = Math.floor(secondsElapsed / 60);
+                            //                 const seconds = secondsElapsed % 60;
+
+                            //                 element.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                            //                 if (mucDoChoElement.classList.contains('btn-outline-success')) {
+                            //                     clearInterval(interval); // Stop the timer
+                            //                     return;
+                            //                 }
+
+                            //                 if (minutes >= 15) {
+                            //                     mucDoChoElement.style.border = '3px solid #dc3545'; // Red
+                            //                     updateMucDoCho(hoadonId, 3);
+                            //                 } else if (minutes >= 10) {
+                            //                     mucDoChoElement.style.border = '3px solid #ffc107'; // Yellow
+                            //                     updateMucDoCho(hoadonId, 2);
+                            //                 }
+                            //             };
+
+                            //             const interval = setInterval(updateTimer, 1000); // Save the interval ID to stop later if needed
+                            //             updateTimer(); // Initial call to set the timer immediately
+                            //         });
+                            //     };
+
+                            //     const updateMucDoCho = (hoadonId, mucdocho) => {
+                            //         fetch('/UpdateMucDoCho', {
+                            //             method: 'POST',
+                            //             headers: {
+                            //                 'Content-Type': 'application/json'
+                            //             },
+                            //             body: JSON.stringify({ HoaDonId: parseInt(hoadonId), MucDoCho: mucdocho })
+                            //         });
+                            //     };
+
+                            //     startTimers();
+                            // });
+                            document.addEventListener('DOMContentLoaded', (event) => {
+                                const startTimers = () => {
+                                    const timeElements = document.querySelectorAll('[data-start-timer="true"]');
+
+                                    timeElements.forEach(element => {
+                                        const startTimeString = element.getAttribute('data-start-time');
+                                        const hoadonId = element.closest('a').getAttribute('data-hoadon-id');
+                                        const mucDoChoElement = element.closest('a');
+
+                                        if (!startTimeString) return;
+
+                                        const startTime = new Date(startTimeString);
+                                        const updateTimer = () => {
+                                            const now = new Date();
+                                            const secondsElapsed = Math.floor((now - startTime) / 1000);
+
+                                            const minutes = Math.floor(secondsElapsed / 60);
+                                            const seconds = secondsElapsed % 60;
+
+                                            element.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                                            if (minutes >= 5) {
+                                                mucDoChoElement.style.backgroundColor = '#dc3545';
+                                                updateMucDoCho(hoadonId, 2);
+                                            } else if (minutes >= 2) {
+                                                mucDoChoElement.style.backgroundColor = '#ffc107';
+                                                updateMucDoCho(hoadonId, 1);
+                                            }
+                                        };
+
+                                        updateTimer();
+                                        setInterval(updateTimer, 1000);
+                                    });
+                                };
+
+                                startTimers();
+                            });
+                        </script> *@
+                    </a>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', (event) => {
+                        const startTimers = () => {
+                            const timeElements = document.querySelectorAll('[data-start-timer="true"]');
+
+                            timeElements.forEach(element => {
+                                const startTimeString = element.getAttribute('data-start-time');
+                                const hoadonId = element.closest('a').getAttribute('data-hoadon-id');
+                                const mucDoChoElement = element.closest('a');
+
+                                if (!startTimeString) return;
+
+                                const startTime = new Date(startTimeString);
+                                const updateTimer = () => {
+                                    const now = new Date();
+                                    const secondsElapsed = Math.floor((now - startTime) / 1000);
+
+                                    const minutes = Math.floor(secondsElapsed / 60);
+                                    const seconds = secondsElapsed % 60;
+
+                                    element.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                                    if (minutes >= 5) {
+                                        mucDoChoElement.style.backgroundColor = '#dc3545';
+                                        updateMucDoCho(hoadonId, 2);
+                                    } else if (minutes >= 2) {
+                                        mucDoChoElement.style.backgroundColor = '#ffc107';
+                                        updateMucDoCho(hoadonId, 1);
+                                    }
+                                };
+
+                                updateTimer();
+                                setInterval(updateTimer, 1000);
+                            });
+                        };
+
+                        startTimers();
+                    });
+                </script>
+            }
+            
+        </div>        
+    </div>
+</div>

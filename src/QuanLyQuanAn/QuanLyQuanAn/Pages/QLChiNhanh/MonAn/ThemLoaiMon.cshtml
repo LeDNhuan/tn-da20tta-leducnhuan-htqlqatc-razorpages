@@ -1,0 +1,103 @@
+﻿@page "/ThemLoaiMon"
+@model QuanLyQuanAn.Pages.QLChiNhanh.MonAn.ThemLoaiMonModel
+@{
+}
+
+
+<div class="pagetitle">
+    <h1>THÊM LOẠI MÓN</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/TongQuan">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/QLMonAn">Quản lý món ăn</a></li>
+            <li class="breadcrumb-item active">Thêm loại món</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-xl-3 col-12"></div>
+            <div class="col-xl-6 col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Thông tin loại món</h5>
+
+                        <div id="data-grid-demo">
+                            @(
+                                Html.DevExtreme().DataGrid<QuanLyQuanAn.Models.LoaiMon>()
+                                    .ID("gridContainer")
+                                    .Paging(paging => paging.Enabled(false))
+                                    .ShowBorders(true)
+                                    .Editing(editing =>
+                                    {
+                                        editing.Mode(GridEditMode.Batch);
+                                        editing.AllowUpdating(true);
+                                        editing.AllowAdding(true);
+                                        editing.AllowDeleting(true);
+                                        editing.UseIcons(true);
+                                        editing.SelectTextOnEditStart(true);
+                                        editing.StartEditAction(GridStartEditAction.Click);
+                                    })
+                                    .Columns(columns =>
+                                    {
+                                        @* columns.AddFor(lm => lm.Id).Caption("ID").AllowEditing(false); *@
+
+                                        columns.AddFor(lm => lm.TenLoaiMon).Caption("Tên loại món");
+
+                                        columns.AddFor(lm => lm.MucHoaHong).Caption("Mức hoa hồng");
+                                    })
+                                    .DataSource(d => d.Mvc()
+                                        .Controller("DataGridLoaiMon")
+                                        .LoadAction("Get")
+                                        .UpdateAction("Put")
+                                        .InsertAction("Post")
+                                        .DeleteAction("Delete")
+                                        .Key("Id")
+                                    )
+                            )
+
+                            @* <div class="options mt-3">
+                                <div class="caption">Tùy chỉnh</div>
+                                <div class="option">
+                                    @(Html.DevExtreme().CheckBox()
+                                        .ID("select-text-on-edit-start")
+                                        .Text("Select Text on Edit Start")
+                                        .Value(true)
+                                        .OnValueChanged("onOptionsValueChanged")
+                                        )
+                                </div>
+                                <div class="option mt-3">
+                                    <span>Start Edit Action</span>
+                                    @(Html.DevExtreme().SelectBox()
+                                        .ID("start-edit-action")
+                                        .DataSource(new[] { "click", "dblClick" })
+                                        .InputAttr("aria-label", "Action")
+                                        .Value("click")
+                                        .OnValueChanged("onStartEditActionValueChanged")
+                                        )
+                                </div>
+                            </div> *@
+                        </div>
+
+                        <script>
+                            function onOptionsValueChanged(data) {
+                                let dataGrid = $("#gridContainer").dxDataGrid("instance");
+                                dataGrid.option("editing.selectTextOnEditStart", data.value);
+                            }
+
+                            function onStartEditActionValueChanged(data) {
+                                let dataGrid = $("#gridContainer").dxDataGrid("instance");
+                                dataGrid.option("editing.startEditAction", data.value);
+                            }
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-12"></div>
+        </div>
+    </div>
+</section>

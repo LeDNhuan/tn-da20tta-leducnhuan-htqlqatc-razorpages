@@ -1,0 +1,76 @@
+﻿@page 
+@model QuanLyQuanAn.Pages.NVien.HoaHongModel
+@{
+}
+
+
+<div class="pagetitle">
+    <h1>Hoa hồng tích lũy</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/BanAn">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Hoa hồng</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="section">
+    <div class="row">
+        <div class="col-xxl-12 col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Hoa hồng bạn nhận được là: @Model.TongHH</h5>
+                    <div class="accordion" id="accordionExample">
+                        @for (int index = 0; index < Model.CaLams.Count; index++)
+                        {
+                            var calam = Model.CaLams[index];
+
+                            <div class="accordion-item">                            
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#@index" aria-expanded="true" aria-controls="collapseOne">
+                                        <strong>Ca ngày @calam.ThoiGianKetThuc.Value.ToString("dd/MM/yyyy") (@calam.ThoiGianBatDau.Value.ToString("HH:mm") -> @calam.ThoiGianKetThuc.Value.ToString("HH:mm"))</strong>                                        
+                                    </button>
+                                </h2>
+
+                                <div id="@index" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        @* <strong>This is the first item's accordion body.</strong> *@
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr class="table-secondary">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Mã HĐ</th>
+                                                    <th scope="col">Tổng tiền</th>
+                                                    <th scope="col">Tiền HH</th>
+                                                </tr>
+                                            </thead>
+
+                                            @{
+                                                var i = 0;                                               
+                                            }
+                                            @foreach (var hoadon in Model.HoaDons)
+                                            {
+                                                if (hoadon.GioRa >= calam.ThoiGianBatDau && hoadon.GioVao <= calam.ThoiGianKetThuc)
+                                                {
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">@i</th>
+                                                            <td>@hoadon.Id</td>
+                                                            <td>@hoadon.TongTien.000</td>
+                                                            <td>@hoadon.TienHoaHong.000</td>
+                                                        </tr>
+                                                    </tbody>
+                                                }                                                 
+                                                i++;
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>                                       
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

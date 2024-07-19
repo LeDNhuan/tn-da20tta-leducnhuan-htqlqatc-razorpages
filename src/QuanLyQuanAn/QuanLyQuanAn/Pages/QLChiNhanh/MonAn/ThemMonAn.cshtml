@@ -1,0 +1,81 @@
+﻿@page "/ThemMonAn"
+@model QuanLyQuanAn.Pages.QLChiNhanh.MonAn.ThemMonAnModel
+
+
+<div class="pagetitle">
+    <h1>QUẢN LÝ MÓN ĂN</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/TongQuan">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/QLMonAn">Quản lý món ăn</a></li>
+            <li class="breadcrumb-item active">Thêm món ăn</li>
+        </ol>
+    </nav>
+</div>
+
+
+<section class="section">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-xl-3"></div>
+            <div class="col-xl-6 col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Thông tin món ăn</h5>
+
+                        <form method="post" asp-page-handler="ThemMonAn" class="row g-3 needs-validation" enctype="multipart/form-data" novalidate>
+                            <div class="col-12">
+                                <label for="ChiNhanh" class="form-label">Chi nhánh</label>
+                                <input type="text" name="ChiNhanhDisplayName" value="@Model.chinhanh?.TenChiNhanh" class="form-control" readonly />
+                                <input type="hidden" name="Input.ChiNhanh" value="@Model.IdChiNhanh" />
+                            </div>
+
+                            <div class="col-12">
+                                <label for="LoaiMon" class="form-label">Loại món</label>
+                                <input type="text" name="LoaiMonDisplayName" class="form-control" value="@Model.loaimon?.TenLoaiMon" readonly>
+                                <input type="hidden" name="Input.LoaiMon" value="@Model.loaimon?.Id">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="TenMon" class="form-label">Tên món</label>
+                                <input type="text" name="Input.TenMon" class="form-control" required>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <label for="GiaBan" class="form-label">Giá bán</label>
+                                <div class="input-group has-validation">
+                                    <input type="number" name="Input.GiaBan" class="form-control" required>
+                                    <span class="input-group-text">.000đ</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="AnhDaiDien" class="form-label">Hình ảnh</label>
+                                <input class="form-control" name="Input.AnhDaiDien" type="file" id="formFile">
+                            </div>
+
+                            @if (!ViewData.ModelState.IsValid)
+                            {
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                    {
+                                        @error.ErrorMessage
+                                    }
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            }
+
+                            <div class="text-center">
+                                <a class="btn btn-danger" href="/QLMonAn">Hủy</a>
+                                <button type="submit" class="btn btn-primary">Lưu</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3"></div>
+        </div>
+    </div>
+</section>

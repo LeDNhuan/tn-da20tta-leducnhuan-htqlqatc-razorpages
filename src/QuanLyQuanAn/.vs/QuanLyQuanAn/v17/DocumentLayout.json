@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|c:\\users\\le duc nhuan\\onedrive - tra vinh university\\duandautay\\quanlyquanan\\quanlyquanan\\pages\\banan\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|solutionrelative:quanlyquanan\\pages\\banan\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|c:\\users\\le duc nhuan\\onedrive - tra vinh university\\duandautay\\quanlyquanan\\quanlyquanan\\pages\\qlchinhanh\\monan\\themmonan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|solutionrelative:quanlyquanan\\pages\\qlchinhanh\\monan\\themmonan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|c:\\users\\le duc nhuan\\onedrive - tra vinh university\\duandautay\\quanlyquanan\\quanlyquanan\\pages\\qlchinhanh\\monan\\themmonan.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|solutionrelative:quanlyquanan\\pages\\qlchinhanh\\monan\\themmonan.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|c:\\users\\le duc nhuan\\onedrive - tra vinh university\\duandautay\\quanlyquanan\\quanlyquanan\\pages\\shared\\_qlychinhanhsidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|solutionrelative:quanlyquanan\\pages\\shared\\_qlychinhanhsidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|c:\\users\\le duc nhuan\\onedrive - tra vinh university\\duandautay\\quanlyquanan\\quanlyquanan\\pages\\catruc\\dongcalam.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|solutionrelative:quanlyquanan\\pages\\catruc\\dongcalam.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|c:\\users\\le duc nhuan\\onedrive - tra vinh university\\duandautay\\quanlyquanan\\quanlyquanan\\pages\\catruc\\dongcalam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|solutionrelative:quanlyquanan\\pages\\catruc\\dongcalam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|c:\\users\\le duc nhuan\\onedrive - tra vinh university\\duandautay\\quanlyquanan\\quanlyquanan\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|solutionrelative:quanlyquanan\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|c:\\users\\le duc nhuan\\onedrive - tra vinh university\\duandautay\\quanlyquanan\\quanlyquanan\\pages\\hoadonan\\dshoadon.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|solutionrelative:quanlyquanan\\pages\\hoadonan\\dshoadon.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|c:\\users\\le duc nhuan\\onedrive - tra vinh university\\duandautay\\quanlyquanan\\quanlyquanan\\wwwroot\\customize\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|solutionrelative:quanlyquanan\\wwwroot\\customize\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|c:\\users\\le duc nhuan\\onedrive - tra vinh university\\duandautay\\quanlyquanan\\quanlyquanan\\pages\\shared\\_nhanviensidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EF9CD4B4-061A-4EA8-97AE-93EF6A576801}|QuanLyQuanAn\\QuanLyQuanAn.csproj|solutionrelative:quanlyquanan\\pages\\shared\\_nhanviensidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 367,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "QuanLyQuanAn\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "QuanLyQuanAn\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAO0AAAAAAAAAAAAtwAABAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T16:44:07.962Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\wwwroot\\customize\\css\\style.css",
+              "RelativeDocumentMoniker": "QuanLyQuanAn\\wwwroot\\customize\\css\\style.css",
+              "ToolTip": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\wwwroot\\customize\\css\\style.css",
+              "RelativeToolTip": "QuanLyQuanAn\\wwwroot\\customize\\css\\style.css",
+              "ViewState": "AQIAAAUBAAAAAAAAAAAowB0BAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-25T04:00:18.6Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_QlychinhanhSidebar.cshtml",
+              "DocumentMoniker": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\Shared\\_QlychinhanhSidebar.cshtml",
+              "RelativeDocumentMoniker": "QuanLyQuanAn\\Pages\\Shared\\_QlychinhanhSidebar.cshtml",
+              "ToolTip": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\Shared\\_QlychinhanhSidebar.cshtml",
+              "RelativeToolTip": "QuanLyQuanAn\\Pages\\Shared\\_QlychinhanhSidebar.cshtml",
+              "ViewState": "AQIAANgAAAAAAAAAAAAAAN4AAAB7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T16:37:54.998Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_NhanvienSidebar.cshtml",
+              "DocumentMoniker": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\Shared\\_NhanvienSidebar.cshtml",
+              "RelativeDocumentMoniker": "QuanLyQuanAn\\Pages\\Shared\\_NhanvienSidebar.cshtml",
+              "ToolTip": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\Shared\\_NhanvienSidebar.cshtml",
+              "RelativeToolTip": "QuanLyQuanAn\\Pages\\Shared\\_NhanvienSidebar.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-25T16:14:20.338Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DSHoaDon.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\HoaDonAn\\DSHoaDon.cshtml.cs",
+              "RelativeDocumentMoniker": "QuanLyQuanAn\\Pages\\HoaDonAn\\DSHoaDon.cshtml.cs",
+              "ToolTip": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\HoaDonAn\\DSHoaDon.cshtml.cs",
+              "RelativeToolTip": "QuanLyQuanAn\\Pages\\HoaDonAn\\DSHoaDon.cshtml.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAcwDUAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T03:28:21.992Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DongCaLam.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\CaTruc\\DongCaLam.cshtml.cs",
+              "RelativeDocumentMoniker": "QuanLyQuanAn\\Pages\\CaTruc\\DongCaLam.cshtml.cs",
+              "ToolTip": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\CaTruc\\DongCaLam.cshtml.cs",
+              "RelativeToolTip": "QuanLyQuanAn\\Pages\\CaTruc\\DongCaLam.cshtml.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAA8wGQAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-14T13:07:42.874Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DongCaLam.cshtml",
+              "DocumentMoniker": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\CaTruc\\DongCaLam.cshtml",
+              "RelativeDocumentMoniker": "QuanLyQuanAn\\Pages\\CaTruc\\DongCaLam.cshtml",
+              "ToolTip": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\CaTruc\\DongCaLam.cshtml",
+              "RelativeToolTip": "QuanLyQuanAn\\Pages\\CaTruc\\DongCaLam.cshtml",
+              "ViewState": "AQIAAIgAAAAAAAAAAAAgwJ4AAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-14T13:07:36.865Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\BanAn\\Index.cshtml",
+              "RelativeDocumentMoniker": "QuanLyQuanAn\\Pages\\BanAn\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\BanAn\\Index.cshtml",
+              "RelativeToolTip": "QuanLyQuanAn\\Pages\\BanAn\\Index.cshtml",
+              "ViewState": "AQIAAMkAAAAAAAAAAAAmwOsAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-18T07:34:32.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ThemMonAn.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\QLChiNhanh\\MonAn\\ThemMonAn.cshtml.cs",
+              "RelativeDocumentMoniker": "QuanLyQuanAn\\Pages\\QLChiNhanh\\MonAn\\ThemMonAn.cshtml.cs",
+              "ToolTip": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\QLChiNhanh\\MonAn\\ThemMonAn.cshtml.cs",
+              "RelativeToolTip": "QuanLyQuanAn\\Pages\\QLChiNhanh\\MonAn\\ThemMonAn.cshtml.cs",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAQwIEAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T16:25:58.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ThemMonAn.cshtml",
+              "DocumentMoniker": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\QLChiNhanh\\MonAn\\ThemMonAn.cshtml",
+              "RelativeDocumentMoniker": "QuanLyQuanAn\\Pages\\QLChiNhanh\\MonAn\\ThemMonAn.cshtml",
+              "ToolTip": "C:\\Users\\Le Duc Nhuan\\OneDrive - Tra Vinh University\\DuAnDauTay\\QuanLyQuanAn\\QuanLyQuanAn\\Pages\\QLChiNhanh\\MonAn\\ThemMonAn.cshtml",
+              "RelativeToolTip": "QuanLyQuanAn\\Pages\\QLChiNhanh\\MonAn\\ThemMonAn.cshtml",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB4AAABnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-17T16:25:45.128Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

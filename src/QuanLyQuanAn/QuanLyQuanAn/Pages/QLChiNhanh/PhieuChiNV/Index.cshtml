@@ -1,0 +1,109 @@
+﻿@page "/QLPhieuChi"
+@model QuanLyQuanAn.Pages.QLChiNhanh.PhieuChiNV.IndexModel
+@{
+}
+<div class="pagetitle">
+    <h1>QUẢN LÝ PHIẾU CHI</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/TongQuan">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Quản lý phiếu chi</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section dashboard">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-xl-2"></div>
+            <div class="col-xl-8 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Danh sách phiếu chi</h5>
+
+                        @* @if ()
+                        {
+                            
+                        } *@
+
+                        @(Html.DevExtreme().DataGrid<QuanLyQuanAn.Models.PhieuChi>()
+                            .ID("gridContainer")
+                            .ShowBorders(true)
+                            .FilterRow(filterRow => filterRow
+                                .Visible(true)
+                                .ApplyFilter(GridApplyFilterMode.Auto)
+                            )
+                            .SearchPanel(searchPanel => searchPanel
+                                .Visible(true)
+                                .Width(240)
+                                .Placeholder("Tìm kiếm...")
+                            )
+                            .Scrolling(scrolling => scrolling.RowRenderingMode(GridRowRenderingMode.Virtual))
+                            .Paging(paging => paging.PageSize(10))
+                            .Pager(pager =>
+                            {
+                                pager.Visible(true);
+                                pager.DisplayMode(GridPagerDisplayMode.Full);
+                                pager.ShowPageSizeSelector(true);
+                                pager.AllowedPageSizes(new JS("[5, 10, 'Tất cả']"));
+                                pager.ShowInfo(true);
+                                pager.ShowNavigationButtons(true);
+                            })
+                            @* .Editing(editing =>
+                            {
+                            editing.Mode(GridEditMode.Form);
+                            editing.AllowUpdating(true);
+                            editing.AllowAdding(true);
+                            editing.AllowDeleting(true);
+                            editing.UseIcons(true);
+                            }) *@
+                            .Columns(columns =>
+                            {
+                                columns.AddFor(pc => pc.IdNhanVien).Caption("Chi nhánh")
+                                    .Visible(true)
+                                    .AllowEditing(false)
+                                    .Width(110)
+                                    .Lookup(lookup => lookup
+                                    .DataSource(d => d.Mvc().Controller("DataGridNhanVienLookup").LoadAction("Get").Key("Id"))
+                                        .DisplayExpr("TenChiNhanh")
+                                        .ValueExpr("Id")
+                                    );
+
+                                @* columns.AddFor(pc => pc.Id).Caption("Mã phiếu chi")
+                                    .Visible(true)
+                                    .AllowEditing(false)
+                                    .Width(110); *@
+
+                                columns.AddFor(pc => pc.IdNhanVien).Caption("Nhân viên lập")
+                                    .Width(150)
+                                    .Lookup(lookup => lookup
+                                        .DataSource(d => d.Mvc().Controller("DataGridNhanVienLookup").LoadAction("Get").Key("Id"))
+                                        .DisplayExpr("HoTen")
+                                        .ValueExpr("Id")
+                                    );
+
+                                columns.AddFor(pc => pc.SoChi).Caption("Số chi")
+                                    .Width(80);
+
+                                columns.AddFor(pc => pc.NgayLap).Caption("Ngày lập")
+                                    .Width(100)
+                                    .Format("dd/MM/yyyy");
+
+                                columns.AddFor(pc => pc.GhiChu).Caption("Ghi chú");
+                            })
+                            .DataSource(d => d.Mvc()
+                                .Controller("DataGridPhieuChi")
+                                .LoadAction("Get")
+                                .UpdateAction("Put")
+                                .InsertAction("Post")
+                                .DeleteAction("Delete")
+                                .Key("Id")
+                            )
+                        )
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2"></div>
+        </div>
+    </div>
+</section>

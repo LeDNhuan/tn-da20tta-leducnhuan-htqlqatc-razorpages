@@ -1,0 +1,195 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = QuanLyQuanAn
+build_property.RootNamespace = QuanLyQuanAn
+build_property.ProjectDir = C:\Users\Le Duc Nhuan\OneDrive - Tra Vinh University\DuAnDauTay\QuanLyQuanAn\QuanLyQuanAn\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Le Duc Nhuan\OneDrive - Tra Vinh University\DuAnDauTay\QuanLyQuanAn\QuanLyQuanAn
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/BanAn/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmFuQW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/CaTruc/DongCaLam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FUcnVjXERvbmdDYUxhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/CaTruc/MoCaLam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FUcnVjXE1vQ2FMYW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/HoaDonAn/DSHoaDon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9hRG9uQW5cRFNIb2FEb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/HoaDonAn/HoaHong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9hRG9uQW5cSG9hSG9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/HoaDonAn/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9hRG9uQW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/HoaDonAn/InHoaDon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9hRG9uQW5cSW5Ib2FEb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/Khach/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS2hhY2hcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/MonAn/ChiTietGoiMon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uQW5cQ2hpVGlldEdvaU1vbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/MonAn/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uQW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/NVien/HoaHong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTlZpZW5cSG9hSG9uZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/NVien/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTlZpZW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/BanAn/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxCYW5BblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/CNhanh/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxDTmhhbmhcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/DoanhThu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxEb2FuaFRodVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/DoanhThu/LoiNhuan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxEb2FuaFRodVxMb2lOaHVhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/KHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxLSGFuZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/KMai/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxLTWFpXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/MonAn/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxNb25BblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/MonAn/SuaMonAn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxNb25BblxTdWFNb25Bbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/MonAn/ThemLoaiMon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxNb25BblxUaGVtTG9haU1vbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/MonAn/ThemMonAn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxNb25BblxUaGVtTW9uQW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/MonAn/ThemNguyenLieu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxNb25BblxUaGVtTmd1eWVuTGlldS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/MonAn/XemTheoLoai.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxNb25BblxYZW1UaGVvTG9haS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/NVien/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxOVmllblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/QLChiNhanh/PhieuChiNV/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUUxDaGlOaGFuaFxQaGlldUNoaU5WXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/Shared/_NhanvienSidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9OaGFudmllblNpZGViYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/Shared/_QlychinhanhSidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9RbHljaGluaGFuaFNpZGViYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/TKhoan/DangKy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVEtob2FuXERhbmdLeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/TKhoan/DangNhap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVEtob2FuXERhbmdOaGFwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/TKhoan/DangXuat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVEtob2FuXERhbmdYdWF0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/TKhoan/DoiMatKhau.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVEtob2FuXERvaU1hdEtoYXUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/TKhoan/LoiTruyCap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVEtob2FuXExvaVRydXlDYXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/TNgan/DoanhThu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVE5nYW5cRG9hbmhUaHVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/TNgan/PChi/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVE5nYW5cUENoaVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/TrangCaNhan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbmdDYU5oYW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Le Duc Nhuan/OneDrive - Tra Vinh University/DuAnDauTay/QuanLyQuanAn/QuanLyQuanAn/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

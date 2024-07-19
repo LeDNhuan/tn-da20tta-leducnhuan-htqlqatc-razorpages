@@ -1,0 +1,119 @@
+﻿@page "/ThanhToan"
+@model QuanLyQuanAn.Pages.HoaDonAn.IndexModel
+@{
+    var HoaDon = Model.HoaDon;
+}
+<section class="section">
+    <div class="row">
+        <div class="col-xxl-1"></div>
+        <div class="col-sm-12 col-xxl-10">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center">HÓA ĐƠN</h3>
+                    @if (HoaDon != null)
+                    {
+                        <div class="row g-3">
+                            <div class="col-md-6 col-6">
+                                <label for="HoaDon" class="form-label">Hóa đơn</label>
+                                <input type="text" class="form-control" id="HoaDon" value="@HoaDon.Id" readonly>
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <label for="ThuNgan" class="form-label">Thu ngân</label>
+                                <input type="text" class="form-control" id="ThuNgan" value="@Model.nvien" readonly>
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <label for="Ban" class="form-label">Bàn</label>
+                                <input type="text" class="form-control" id="Ban" value="@HoaDon.IdBan" readonly>
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <label for="Ngay" class="form-label">Ngày</label>
+                                <input type="text" class="form-control" id="Ngay" value="@HoaDon.GioVao.Value.ToString("dd/MM/yyyy")" readonly>
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <label for="GioVao" class="form-label">Giờ vào</label>
+                                <input type="datetime" class="form-control" id="GioVao" value="@HoaDon.GioVao.Value.ToString("HH:mm")" readonly>
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <label for="GioRa" class="form-label">Giờ ra</label>
+                                <input type="datetime" class="form-control" id="GioRa" value="@HoaDon.GioRa.Value.ToString("HH:mm")" readonly>
+                            </div>
+
+                            <hr style="border-top: 1px dashed;" />
+
+                            @* <span class="text-center mb-3 text-primary">CHI TIẾT GỌI MÓN</span> *@
+
+                            <div class="card col-md-12">
+                                <div class="card-body">
+                                    @* <h5 class="card-title">Default Table</h5> *@
+                                    <!-- Default Table -->
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Tên món</th>
+                                                <th scope="col">Đơn giá</th>
+                                                <th scope="col">Số lượng</th>                                                
+                                                <th scope="col">Thành tiền</th>
+                                                @* <th scope="col">Start Date</th> *@
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                int index = 1;
+                                            }
+                                            @foreach (var chitiet in Model.ChiTiets)
+                                            {
+                                                <tr>
+                                                    <th scope="row">@index</th>
+                                                    <td>@chitiet.IdMonGoiNavigation.IdLoaiMonNavigation.TenLoaiMon | @chitiet.IdMonGoiNavigation.TenMon</td>
+                                                    <td>@chitiet.IdMonGoiNavigation.GiaBan</td>
+                                                    <td>@chitiet.SoLuong</td>                                                    
+                                                    <td>@chitiet.ThanhTien</td>
+                                                    @* <td>2011-04-19</td> *@
+                                                </tr>
+                                                index++;
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <!-- End Default Table Example -->
+                                </div>
+                            </div>
+
+                            @* <div class="col-md-6 col-6">
+                                <label for="LoaiMon" class="form-label">Loại món</label>
+                                <input type="text" class="form-control" id="LoaiMon" value="@chitiet.IdMonGoiNavigation.IdLoaiMonNavigation.TenLoaiMon @chitiet.IdMonGoiNavigation.TenMon" readonly>
+                                </div>
+
+                                <div class="col-md-6 col-6">
+                                <label for="SoLuong" class="form-label">Số lượng</label>
+                                <input type="number" class="form-control" id="SoLuong" value="@chitiet.SoLuong">
+                                </div>
+                                <div class="col-md-6 col-12">
+                                <label for="TenMon" class="form-label">Tên món</label>
+                                <input type="text" class="form-control" id="LoaiMon" value="@chitiet.IdMonGoiNavigation.TenMon">
+                                </div> *@
+
+                                @* <hr style="border-top: 1px dashed;" /> *@
+
+                                @* <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Thêm</button>
+                                </div> *@
+
+                            <hr style="border-top: 1px dashed;" />
+
+                            <div class="text-center">                            
+                                <form method="post" enctype="multipart/form-data" asp-page-handler="ThanhToan">
+                                    <button class="btn btn-danger" href="">Hủy</button>
+                                    <input type="hidden" name="hoadonId" value="@HoaDon.Id" />
+                                    <button type="submit" class="btn btn-primary">In hóa đơn</button>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-1"></div>
+    </div>
+</section>

@@ -1,0 +1,249 @@
+﻿@page
+@model QuanLyQuanAn.Pages.QLChiNhanh.MonAn.XemTheoLoaiModel
+
+<div class="pagetitle">
+    <h1>MÓN ĂN</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/QLChiNhanh/Index">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Món ăn</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="pagetitle">
+    <div class="row">
+
+        <div class="col-lg-6">
+            @* @(Html.DevExtreme().DataGrid<QuanLyQuanAn.Models.LoaiMon>()
+                .Width("100%")
+                .ID("DataGridLoaiMon")
+                .Selection(s => s.Mode(SelectionMode.Single))
+                .HoverStateEnabled(true)
+                .ShowBorders(true)
+                .Editing(e => e.Mode(GridEditMode.Batch)                
+                    .AllowUpdating(true)
+                    .UseIcons(true)
+                    .AllowAdding(true)
+                    .AllowDeleting(true)
+                )
+                .Columns(columns =>
+                {
+                    columns.AddFor(m => m.TenLoaiMon).Caption("Tên loại món")
+                    .Width(70);
+                })
+                .DataSource(d => d.Mvc()
+                .Controller("DataGridLoaiMon")
+                .LoadAction("Get")
+                .UpdateAction("Put")
+                .InsertAction("Post")
+                .DeleteAction("Delete")
+                .Key("Id")
+                )
+                
+            ) *@
+        </div>
+
+        @* <div class="col-lg-6">
+            <select id="loaiMonSelect" class="form-select" style="background-color: lavender; text-align: center; margin-top: 20px">
+                <option selected="" disabled="">Chọn loại món...</option>
+                @foreach (var lm in Model.LoaiMons)
+                {
+                    <option><a href="/QLChiNhanh/MonAn/XemTheoLoai?loaimonId=@lm.Id">@lm.TenLoaiMon</a></option>
+                }
+
+            </select>
+        </div> *@
+    </div>
+
+    <script>
+        document.getElementById("loaimonSelect").onchange = function () {
+            var selectedId = this.value; // Lấy ID của lựa chọn đã chọn
+            // var currentUrl = window.location.href;
+            // var newUrl = currentUrl.replace(/(loaimonId=)\d+/, '$1' + selectedId);
+            var newLoaimonId = 2; // Giá trị mới của loaimonId
+            var newUrl = currentUrl.replace(/(loaimonId=)\d+/, '$1' + newLoaimonId);
+            window.location.href = newUrl;
+        };
+    </script>
+
+    @* <div class="col-lg-12">
+        @foreach (var loai in Model.LoaiMon)
+        { 
+            <h4>@loai.TenLoaiMon</h4>
+        }
+        
+    </div> *@
+</div>
+
+
+@* <div class="iconslist">
+    @foreach (var mon in Model.MonAns)
+    {
+        <div class="icon">
+            <img src="@mon.AnhDaiDien" class="card-img-top" alt="...">
+            <div class="price">@mon.TenMon</div>
+            <div class="label">@mon.GiaBan</div>
+        </div>
+    }
+    
+    <div class="icon">
+        <i class="bi bi-alarm"></i>
+        <div class="label">alarm</div>
+    </div>
+    <div class="icon">
+        <i class="bi bi-align-bottom"></i>
+        <div class="label">align-bottom</div>
+    </div>
+    <div class="icon">
+        <i class="bi bi-align-bottom"></i>
+        <div class="label">align-bottom</div>
+    </div>
+    <div class="icon">
+        <i class="bi bi-align-bottom"></i>
+        <div class="label">align-bottom</div>
+    </div>
+    <div class="icon">
+        <img src="~/customize/img/card.jpg" class="card-img-top" alt="...">
+        <div class="label">align-bottom</div>
+    </div>
+    
+</div> *@
+
+<script>
+    $(function () {
+        // Xử lý sự kiện khi thay đổi lựa chọn trong dropdown
+        $("#loaiMonSelect").change(function () {
+            var selectedCategoryId = $(this).val(); // Lấy giá trị id của loại món đã chọn
+            var selectedCategoryName = $(this).find("option:selected").text(); // Lấy tên của loại món đã chọn
+
+            // Hiển thị tên của loại món đã chọn
+            $("#selectedCategoryName").text(selectedCategoryName);
+
+            $.get("/Menu/GetMenuItemsByCategoryId?categoryId=" + selectedCategoryId, function (data) {
+                // Xử lý dữ liệu trả về và hiển thị thông tin món ăn
+                displayMenuItems(data);
+            });
+        });
+    });
+
+    // function displayMenuItems(MonAns) {
+    //     // Xóa bỏ thông tin món ăn hiện tại (nếu có)
+    //     $("#iconslist").empty();
+
+    //     // Hiển thị thông tin món ăn mới
+    //     MonAns.forEach(function (ma) {
+    //         var MonAnList = `
+    //                 <div class="icon">
+    //                     <img src="${ma.AnhDaiDien}" class="card-img-top" alt = "..." >
+    //                     <div class="price">${ma.TenMon}</div>
+    //                     <div class="lable" >${ma.GiaBan}< /div>
+
+    //                 </div>
+    //             `;
+    //         <div class="icon" >
+
+
+    //             <div class="label" > alarm - fill < /div>
+    //                 < /div>
+    //         $("#iconslist").append(MonAnList);
+    //     });
+    // }
+</script>
+
+@* ------------------------FORM THÊM MÓN------------------------ *@
+<div class="card" id="hiddenForm" style="display:none;">
+    <div class="card-body">
+        <h5 class="card-title">Thêm món</h5>
+
+        <!-- Multi Columns Form -->
+        <form class="row g-3">
+            <div class="col-md-12">
+                <label for="" class="form-label">Tên món</label>
+                <input type="text" class="form-control" id="">
+            </div>
+            <div class="col-md-12">
+                <label for="" class="form-label">Giá</label>
+                <div class="col-md-10 input-group">
+                    <span class="input-group-text">đ</span>
+                    <input type="number" min="0" class="form-control" id="">
+                    <span class="input-group-text">.000</span>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <label for="" class="form-label">Loại món</label>
+                <input type="text" class="form-control" id="" value="Phở" readonly>
+            </div>
+            <div class="col-md-6">
+                <label for="" class="form-label">Ảnh đại diện</label>
+                <input class="form-control" type="file" id="">
+            </div>
+            <div class="col-md-2">
+                <label for="ingredient-quantity" class="form-label">Số lượng nguyên liệu</label>
+                <input type="number" class="form-control" min="0" id="ingredient-quantity">
+            </div>
+            <div id="ingredient-fields">
+                <!-- Các ô tên nguyên liệu và số lượng sẽ được thêm vào đây -->
+            </div>
+            @* <div class="col-md-6">
+            <label for="" class="form-label">Tên nguyên liệu</label>
+            <input type="text" class="form-control" id="">
+            </div>
+            <div class="col-md-6">
+            <label for="" class="form-label">Số lượng</label>
+            <input type="number" class="form-control" id="">
+            </div> *@
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Thêm</button>
+                <button type="button" id="cancelButton" class="btn btn-secondary">Hủy</button>
+            </div>
+        </form><!-- End Multi Columns Form -->
+
+        <script>
+            document.getElementById("openFormButton").addEventListener("click", function () {
+                // Lấy đối tượng form
+                var form = document.getElementById("hiddenForm");
+
+                // Hiển thị form
+                form.style.display = "block";
+            });
+            document.getElementById("cancelButton").addEventListener("click", function () {
+                // Lấy đối tượng form
+                var form = document.getElementById("hiddenForm");
+
+                // Ẩn form
+                form.style.display = "none";
+            });
+
+            $(document).ready(function () {
+                $('#ingredient-quantity').on('change', function () { // Sử dụng sự kiện "change" thay vì "input"
+                    var quantity = parseInt($(this).val()); // Chuyển giá trị thành số nguyên
+
+                    // Xác định đối tượng chứa các ô nguyên liệu
+                    var ingredientFields = $('#ingredient-fields');
+                    ingredientFields.empty(); // Xóa các ô trước đó
+
+                    // Thêm các ô nguyên liệu mới
+                    for (var i = 0; i < quantity; i++) {
+                        ingredientFields.append(
+                            '<div class="row g-3" style="margin-bottom: 10px;">' +
+                            '<div class="col-md-6">' +
+                            '<label for="ingredient-name-' + i + '" class="form-label">Tên nguyên liệu</label>' +
+                            '<input type="text" class="form-control" id="ingredient-name-' + i + '">' +
+                            '</div>' +
+                            '<div class="col-md-6">' +
+                            '<label for="ingredient-quantity-' + i + '" class="form-label">Số lượng</label>' +
+                            '<div class="col-md-3 input-group">' +
+                            '<input type="number" class="form-control" min="1" id="ingredient-quantity-' + i + '">' +
+                            '<span class="input-group-text">g</span>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>'
+                        );
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>

@@ -1,0 +1,194 @@
+﻿@page "/ChiTiet"
+@model QuanLyQuanAn.Pages.MonAn.ChiTietGoiMonModel
+
+<div class="pagetitle">
+    <h1>CHI TIẾT GỌI MÓN</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Index">Trang chủ</a></li>
+            <li class="breadcrumb-item">Gọi món</li>
+            <li class="breadcrumb-item active">Chi tiết</li>
+        </ol>
+    </nav>
+</div>
+
+<hr />
+
+<section class="section dashboard">
+    <div class="col-12">        
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">            
+                @for (int i = 0; i < Model.ChiTiets.Count; i++)
+                {
+                    var chitiet = Model.ChiTiets[i];
+                    @if (chitiet.TrangThai == "Roi")
+                    {
+                        var ghichu = chitiet.GhiChu;
+
+                        <div class="col-xxl-4 col-sm-12">
+                            <div class="card-container">
+                                <div class="card info-card sales-card" style="height: 220px">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-4 mt-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="d-flex align-items-center justify-content-center">
+                                                        <img class="card-img" src="~/customize/img/default_monan.png" alt="Alternate Text" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <h5 class="card-title"><span>@chitiet.IdMonGoiNavigation.IdLoaiMonNavigation.TenLoaiMon</span></h5>
+                                                <h5 class="card-title">@chitiet.IdMonGoiNavigation.TenMon</h5>
+                                                <span class="text-secondary fw-bold">@chitiet.ThanhTien.000</span>
+                                                <div class="row pt-3">
+                                                    <div class="input-group has-validation w-140">
+                                                        <button class="btn btn-outline-secondary" type="button" id="btn-decrease-@chitiet.Id" disabled><i class="bi bi-dash"></i></button>
+                                                        <input type="text" name="Input.ChiTiets[@i].SoLuong" class="form-control text-center" id="soluong-@chitiet.Id" value="@chitiet.SoLuong" readonly>
+                                                        <button class="btn btn-outline-secondary" type="button" id="btn-increase-@chitiet.Id" disabled><i class="bi bi-plus"></i></button>
+                                                        <input type="hidden" name="Input.ChiTiets[@i].Id" value="@chitiet.Id" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @* @if (!string.IsNullOrEmpty(ghichu))
+                                            {
+                                                <div class="col-12 mt-2">
+                                                    <input type="text" class="form-control bg-warning text-white" value="@chitiet.GhiChu" readonly />
+                                                </div> 
+                                            } *@                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="overlay">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                            </div>                      
+                        </div>
+                    }
+                    else
+                    {
+                        var ghichu = chitiet.GhiChu;
+
+                        <div class="col-xxl-4 col-sm-12">
+                            <div class="card-container">
+                                <div class="card info-card sales-card" style="height: 220px">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-4 mt-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="d-flex align-items-center justify-content-center">
+                                                        <img class="card-img" src="~/customize/img/default_monan.png" alt="Alternate Text" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <h5 class="card-title"><span>@chitiet.IdMonGoiNavigation.IdLoaiMonNavigation.TenLoaiMon</span></h5>
+                                                <h5 class="card-title">@chitiet.IdMonGoiNavigation.TenMon</h5>
+                                                <span class="text-secondary fw-bold">@chitiet.ThanhTien.000</span>
+                                                <div class="row pt-3">
+                                                    <div class="input-group has-validation w-140">                                                        
+                                                        <button class="btn btn-outline-primary" type="button" id="btn-decrease-@chitiet.Id"><i class="bi bi-dash"></i></button>
+                                                        <input type="text" name="Input.ChiTiets[@i].SoLuong" class="form-control text-center" id="soluong-@chitiet.Id" value="@chitiet.SoLuong" readonly>
+                                                        <button class="btn btn-outline-primary" type="button" id="btn-increase-@chitiet.Id"><i class="bi bi-plus"></i></button>
+                                                        <input type="hidden" name="Input.ChiTiets[@i].Id" value="@chitiet.Id" />                                                
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @if (!string.IsNullOrEmpty(ghichu))
+                                            {
+                                                <div class="col-12 mt-2">
+                                                    <input type="text" class="form-control bg-warning text-white" value="@chitiet.GhiChu" readonly />
+                                                </div>
+                                            }
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', (event) => {
+                            const input = document.getElementById('soluong-@chitiet.Id');
+                            const btnDecrease = document.getElementById('btn-decrease-@chitiet.Id');
+                            const btnIncrease = document.getElementById('btn-increase-@chitiet.Id');
+
+                            btnDecrease.addEventListener('click', () => {
+                                let currentValue = parseInt(input.value);
+                                if (currentValue > 0) {
+                                    input.value = currentValue - 1;
+                                }
+                            });
+
+                            btnIncrease.addEventListener('click', () => {
+                                let currentValue = parseInt(input.value);
+                                input.value = currentValue + 1;
+                            });
+                        });
+                    </script>
+                }                                            
+            </div>
+
+            @if (Model.role != "NhanVien")
+            {
+                <div class="col-12 footer-thanhtoan sticky-footer">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xxl-6"></div>
+                            <div class="col-xxl-6 col-12 align-items-center mt-3">
+                                <button type="submit" class="btn btn-success float-end" asp-page-handler="UpdateChiTiet">Cập nhật</button>
+                                <a class="btn btn-secondary float-end" href="/GoiMon?banId=@Model.HoaDon?.IdBan">Gọi thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 footer-thanhtoan sticky-footer mt-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xxl-6"></div>
+                            <div class="col-xxl-6 col-12 align-items-center mt-3">                            
+                                <a class="btn btn-primary float-end" href="/ThanhToan?hoadonId=@Model.HoaDonId" style="@(Model.TatCaChiTiet ? "" : "pointer-events: none; cursor: not-allowed; opacity: 0.65;")">Thanh toán</a>                            
+                                <button type="submit" asp-page-handler="ThongBao" class="btn btn-danger float-end" style="@(Model.TatCaChiTiet ? "pointer-events: none; cursor: not-allowed; opacity: 0.65;" : "")">Lên món</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="col-12 footer-thanhtoan sticky-footer">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xxl-6"></div>
+                            <div class="col-xxl-6 col-12 align-items-center mt-3">
+                                @* <button type="submit" asp-page-handler="ThongBao" class="btn btn-danger float-end" style="@(Model.TatCaChiTiet ? "pointer-events: none; cursor: not-allowed; opacity: 0.65;" : "")">Lên món</button> *@
+                                <button type="submit" class="btn btn-success float-end" asp-page-handler="UpdateChiTiet" style="@(Model.TatCaChiTiet ? "pointer-events: none; cursor: not-allowed; opacity: 0.65;" : "")">Cập nhật</button>
+                                <a class="btn btn-secondary float-end" href="/GoiMon?banId=@Model.HoaDon?.IdBan">Gọi thêm</a>                                
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="col-12 footer-thanhtoan sticky-footer mt-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xxl-6"></div>
+                            <div class="col-xxl-6 col-12 align-items-center mt-3">
+                                <form method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="hoadonId" value="@Model.HoaDonId" />
+                                    <button type="submit" asp-page-handler="HuyHoaDon" class="btn btn-primary float-end" style="@(Model.TonTaiChiTietRoi ? "pointer-events: none; cursor: not-allowed; opacity: 0.65;" : "")">Hủy hóa đơn</button>
+                                </form>                                
+                                <button type="submit" asp-page-handler="ThongBao" class="btn btn-danger float-end" style="@(Model.TatCaChiTiet ? "pointer-events: none; cursor: not-allowed; opacity: 0.65;" : "")">Lên món</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+        </form>
+
+        
+    </div>
+</section>  

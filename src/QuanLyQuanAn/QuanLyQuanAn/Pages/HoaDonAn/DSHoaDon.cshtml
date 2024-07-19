@@ -1,0 +1,124 @@
+﻿@page "/DSHoaDon"
+@model QuanLyQuanAn.Pages.HoaDonAn.DSHoaDonModel
+@{
+}
+
+<div class="pagetitle">
+    <h1>Danh sách hóa đơn</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/BanAn">Trang chủ</a></li>
+            <li class="breadcrumb-item active">DS hóa đơn</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="section">
+    <div class="row">
+        <div class="col-xxl-12 col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Danh sách hóa đơn</h5>
+                    <table class="table datatable">
+                        <thead>
+                            <tr class="table-secondary">
+                                <th scope="col">#</th>
+                                <th scope="col">Chi nhánh</th>
+                                <th scope="col">Bàn</th>
+                                <th scope="col">Mã HĐ</th>
+                                <th scope="col">Tổng tiền</th>
+                                <th scope="col">Giờ vào</th>
+                                <th scope="col">Giờ ra</th>
+                                <th scope="col">Chi tiết</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            @{
+                                var i = 1;
+                            }
+                            @foreach (var hoadon in Model.HoaDons)
+                            {
+                                <tr>
+                                    <th scope="row">@i</th>
+                                    <td>@hoadon.IdBanNavigation.IdChiNhanhNavigation.TenChiNhanh</td>
+                                    <td>@hoadon.IdBanNavigation.LoaiBan</td>
+                                    <td>@hoadon.Id</td>
+                                    <td>@hoadon.TongTien.000</td>
+                                    <td>@hoadon.GioVao.Value.ToString("HH:mm dd/MM/yyyy")</td>
+                                    <td>@hoadon.GioRa.Value.ToString("HH:mm dd/MM/yyyy")</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal" data-id="@hoadon.Id"><i class="bi bi-justify"></i></button>
+                                    </td>
+                                </tr>                                
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+
+                    <div class="modal fade" id="basicModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Chi tiết hóa đơn</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-borderless text-center">
+                                        <thead>
+                                            <tr class="table-primary">
+                                                <th scope="col">#</th>
+                                                <th scope="col">Loại món</th>
+                                                <th scope="col">Tên món</th>
+                                                <th scope="col">Giá</th>
+                                                <th scope="col">Số lượng</th>
+                                                <th scope="col">Thành tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="modal-body-content">
+                                            <!-- Nội dung chi tiết hóa đơn sẽ được tải vào đây bằng JavaScript -->
+                                        </tbody>                                        
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Basic Modal-->
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var detailsModal = document.getElementById('basicModal');
+                            detailsModal.addEventListener('show.bs.modal', function (event) {
+                                var button = event.relatedTarget; // Nút bấm kích hoạt modal
+                                var id = button.getAttribute('data-id'); // Lấy ID hóa đơn từ thuộc tính data-id
+
+                                // Gọi ajax để lấy chi tiết hóa đơn và cập nhật modal body
+                                fetch(`/HoaDon/Details?id=${id}`)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        var tbody = document.getElementById('modal-body-content');
+                                        tbody.innerHTML = '';
+                                        var index = 1;
+                                        data.forEach(chitiet => {
+                                            var row = `<tr>
+                                                    <th scope="row">${index}</th>
+                                                    <td>${chitiet.LoaiMon}</td>
+                                                    <td>${chitiet.TenMon}</td>
+                                                    <td>${chitiet.Gia}</td>
+                                                    <td>${chitiet.SoLuong}</td>
+                                                    <td>${chitiet.ThanhTien}</td>
+                                                </tr>`;
+                                            tbody.insertAdjacentHTML('beforeend', row);
+                                            index++;
+                                        });
+                                    });
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
